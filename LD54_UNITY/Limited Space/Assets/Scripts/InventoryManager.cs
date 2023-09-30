@@ -12,7 +12,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private bool isDragging = false;
     [SerializeField] private Collider2D draggingCollider;
     [SerializeField] private float rotationSpeed = 5.0f;
-
+    private bool isInventoryOpen = false;
     private void Update()
     {
         DragAndDrop();
