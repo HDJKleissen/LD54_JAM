@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Inventory
+  - CarriageContainer
+  - OutsideCarriage
+  - CarriageItem
   layers:
   - Default
   - TransparentFX
