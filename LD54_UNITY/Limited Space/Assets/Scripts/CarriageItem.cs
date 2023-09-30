@@ -8,7 +8,7 @@ public class CarriageItem : MonoBehaviour
     [SerializeField] private SpriteRenderer sprite;
     public bool IsFitCorrectly { get; private set; } = true;
 
-    [field: SerializeField] public float ItemSize { get; private set; }
+    public float ItemSize { get; private set; }
 
     private InventoryManager inventoryManager;
     public CarriageManager carriageManager { get; set; }

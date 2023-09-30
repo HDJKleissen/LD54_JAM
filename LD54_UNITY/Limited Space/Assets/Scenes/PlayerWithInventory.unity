@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 200
+  <IsCarriageOpen>k__BackingField: 0
   carriage: {fileID: 13866625}
   accuracyTmp: {fileID: 868934398}
   itemContainer: {fileID: 1440081399}
@@ -1937,6 +1938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 200
+  <IsCarriageOpen>k__BackingField: 0
   carriage: {fileID: 375419142}
   accuracyTmp: {fileID: 1103826258}
   itemContainer: {fileID: 1785082333}
@@ -4041,6 +4043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 200
+  <IsCarriageOpen>k__BackingField: 0
   carriage: {fileID: 837261460}
   accuracyTmp: {fileID: 1006160143}
   itemContainer: {fileID: 108885425}
@@ -8293,7 +8296,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToSpawn: {fileID: 5309805382019218921, guid: 0ff746ed2095fac4f864c8079723783d, type: 3}
-  randomOffSetRange: 3
+  randomOffSetRange: 5
+  spawnAmount: 12
 --- !u!1 &1791122162
 GameObject:
   m_ObjectHideFlags: 0
@@ -9711,6 +9715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 200
+  <IsCarriageOpen>k__BackingField: 0
   carriage: {fileID: 2051030753}
   accuracyTmp: {fileID: 1646336632}
   itemContainer: {fileID: 583571611}

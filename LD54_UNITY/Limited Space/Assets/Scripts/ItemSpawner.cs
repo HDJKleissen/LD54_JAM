@@ -8,17 +8,18 @@ public class ItemSpawner : MonoBehaviour
     private Planet planet;
     [SerializeField] CarriageItem itemToSpawn;
     [SerializeField] float randomOffSetRange = 3.0f;
+    [SerializeField] int spawnAmount = 5;
+
     private void Awake()
     {
         planet = GetComponent<Planet>();
     }
-    // Start is called before the first frame update
+
     void Start()
     {
-        StartCoroutine(SpawnItems(5));
+        StartCoroutine(SpawnItems(spawnAmount));
     }
 
-    // Update is called once per frame
     void Update()
     {
         

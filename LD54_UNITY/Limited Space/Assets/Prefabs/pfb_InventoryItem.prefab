@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1082552606674920602}
   - component: {fileID: 3060212761329412372}
   - component: {fileID: 5309805382019218921}
+  - component: {fileID: 4635584299981871234}
   - component: {fileID: 3899515041167456375}
   m_Layer: 6
   m_Name: pfb_InventoryItem
@@ -149,6 +150,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 1082552606674920602}
   <ItemSize>k__BackingField: 0
+--- !u!114 &4635584299981871234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2389635806271880861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c27a44384db704796b1d361bf65ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRandomRange: 0.15
+  maxRotationSpeed: 30
 --- !u!50 &3899515041167456375
 Rigidbody2D:
   serializedVersion: 4
