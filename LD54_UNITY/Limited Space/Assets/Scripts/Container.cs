@@ -5,7 +5,6 @@ using UnityEngine;
 public class Container : MonoBehaviour, IDamageable
 {
     private CarriageManager carriageManager;
-    private InventoryManager inventoryManager;
     public void Damage(float amount)
     {
         // Choose random amount of cargo items, then distribute damage. For now we log to console
@@ -15,7 +14,6 @@ public class Container : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     void Start()
     {
-        inventoryManager = FindObjectOfType<InventoryManager>();
         carriageManager = GetComponentInChildren<CarriageManager>(true);
     }
 
@@ -25,8 +23,8 @@ public class Container : MonoBehaviour, IDamageable
         
     }
 
-    public void OnMouseDown()
+    public void OnClick(InventoryManager inventoryManager)
     {
-        inventoryManager.OpenCarriage(carriageManager);
+        inventoryManager.SetCarriageState(carriageManager);
     }
 }

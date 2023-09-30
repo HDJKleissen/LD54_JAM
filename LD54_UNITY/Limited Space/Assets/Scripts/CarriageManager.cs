@@ -13,7 +13,7 @@ public class CarriageManager : MonoBehaviour
     private bool isDragging = false;
     private Collider2D draggingCollider;
     [SerializeField] private float rotationSpeed = 5.0f;
-    public bool IsCarriageOpen { get; private set; } = false;
+    [field: SerializeField] public bool IsCarriageOpen { get; private set; } = false;
     private Vector3 smallScale = new Vector3(1.0f, 0.15f, 1.0f);
 
     [SerializeField] private BoxCollider2D carriage;
@@ -34,6 +34,7 @@ public class CarriageManager : MonoBehaviour
         transform.localScale = smallScale;
         carriageItems.Clear();
         carriageSize = carriage.GetComponent<BoxCollider2D>().size.x * carriage.GetComponent<BoxCollider2D>().size.y;
+
     }
 
     private void Update()
@@ -66,12 +67,12 @@ public class CarriageManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        carriageItems.Clear();
     }
 
 
     private void OnEnable()
     {
+        IsCarriageOpen = false;
         OpenCarriage();
     }
 
@@ -112,7 +113,10 @@ public class CarriageManager : MonoBehaviour
         // Play the sequence
         mySequence.Play();
 
-        IsCarriageOpen = true;
+        mySequence.OnComplete(() =>
+        {
+            IsCarriageOpen = true;
+        });
     }
 
     public void TryCloseCarriage()

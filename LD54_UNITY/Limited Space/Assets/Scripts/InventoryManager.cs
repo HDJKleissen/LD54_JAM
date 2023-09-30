@@ -16,7 +16,35 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckMouseClick();
+    }
+
+    void CheckMouseClick()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            // Cast a ray from the mouse position
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 10);
+
+            if (hit && hit.collider.GetComponent<Container>())
+            {
+                Debug.Log("Im over 'This'");
+                hit.collider.GetComponent<Container>().OnClick(this);
+            }
+        }
+    }
+
+    public void SetCarriageState(CarriageManager carriage)
+    {
+        if (carriage.gameObject.activeSelf)
+        {
+            carriage.CloseCarriage();
+        }
+        else
+        {
+            OpenCarriage(carriage);
+        }
     }
 
     public void CloseCarriage(CarriageManager carriage)

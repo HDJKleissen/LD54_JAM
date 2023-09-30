@@ -60,7 +60,7 @@ public class CarriageItem : MonoBehaviour
             }
         }
 
-        if (collision.tag == "CarriageContainer" && carriageManager == null)
+        if (collision.tag == "CarriageContainer" && carriageManager == null && collision.GetComponent<CarriageManager>().IsCarriageOpen)
         {
             if (collision.GetComponent<CarriageManager>() && !collision.GetComponent<CarriageManager>().carriageItems.Contains(this))
             {
