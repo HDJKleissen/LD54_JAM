@@ -10,8 +10,8 @@ public class CarriageItem : MonoBehaviour
 
     [field: SerializeField] public float ItemSize { get; private set; }
 
-    InventoryManager inventoryManager;
-    public CarriageManager carriageManager;
+    private InventoryManager inventoryManager;
+    public CarriageManager carriageManager { get; set; }
 
     bool isClippingOutside = false;
 
@@ -38,6 +38,7 @@ public class CarriageItem : MonoBehaviour
         }
     }
 
+    // flip between inside and outside of the carriage
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (carriageManager && !carriageManager.IsCarriageOpen)
@@ -45,17 +46,12 @@ public class CarriageItem : MonoBehaviour
             return;
         }
 
-        if (collision.tag == "CarriageItem")
+        if (collision.tag == "CarriageItem" && carriageManager == collision.GetComponent<CarriageItem>().carriageManager)
         {
             IsFitCorrectly = false;
         }
 
-        if (collision.tag == "OutsideCarriage")
-        {
-        }
-
-        
-        if (collision.tag == "OutsideCarriage")
+        if(carriageManager && carriageManager.OutsideColliders.Exists(item => item == collision)) 
         {
             isClippingOutside = true;
             if (carriageManager && carriageManager.carriageItems.Contains(this))
@@ -64,7 +60,7 @@ public class CarriageItem : MonoBehaviour
             }
         }
 
-        if (collision.tag == "CarriageContainer")
+        if (collision.tag == "CarriageContainer" && carriageManager == null)
         {
             if (collision.GetComponent<CarriageManager>() && !collision.GetComponent<CarriageManager>().carriageItems.Contains(this))
             {
@@ -83,7 +79,7 @@ public class CarriageItem : MonoBehaviour
             return;
         }
 
-        if (collision.tag == "CarriageItem")
+        if (collision.tag == "CarriageItem" && carriageManager == collision.GetComponent<CarriageItem>().carriageManager)
         {
             IsFitCorrectly = true;
         }

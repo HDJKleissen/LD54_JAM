@@ -24,7 +24,10 @@ public class CarriageManager : MonoBehaviour
     [SerializeField] private Transform itemContainer;
 
     InventoryManager inventoryManager;
+    [field: SerializeField] public Transform CloseButtonCanvas { get; private set; }
+    public List<Collider2D> OutsideColliders = new List<Collider2D>();
 
+    public bool IsOpenLeft = false;
     private void Awake()
     {
         inventoryManager = FindObjectOfType<InventoryManager>();
@@ -44,6 +47,7 @@ public class CarriageManager : MonoBehaviour
         RotateDragging();
 
         CalculateFitness();
+        RotateUIToPlayer();
     }
 
     public void AddCarriageItem(CarriageItem carriageItem)
@@ -88,6 +92,11 @@ public class CarriageManager : MonoBehaviour
         accuracyTmp.text = $"{percentageOccupy.ToString("0")}%";
     }
 
+    private void RotateUIToPlayer()
+    {
+        accuracyTmp.transform.rotation = Quaternion.identity;
+        CloseButtonCanvas.rotation = Quaternion.identity;
+    }
 
 
     public void OpenCarriage()
@@ -110,7 +119,7 @@ public class CarriageManager : MonoBehaviour
     {
         if(carriageItems.All(item => item.IsFitCorrectly))
         {
-            CloseCarriage();
+            inventoryManager.CloseCarriage(this);
             // TODO AUDIO: play fit SFX
         }
         else
@@ -133,6 +142,7 @@ public class CarriageManager : MonoBehaviour
         mySequence.OnComplete(() =>
         {
             gameObject.SetActive(false);
+            inventoryManager.RemoveCarriage(this);
         });
 
         // Play the sequence
