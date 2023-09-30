@@ -211,7 +211,7 @@ DistanceJoint2D:
   m_ConnectedAnchor: {x: 0, y: -1}
   m_AutoConfigureDistance: 1
   m_Distance: 0.50000024
-  m_MaxDistanceOnly: 0
+  m_MaxDistanceOnly: 1
 --- !u!233 &1993600824330088373
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -235,8 +235,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
-    m_LowerAngle: 45
-    m_UpperAngle: -45
+    m_LowerAngle: 75
+    m_UpperAngle: -75
 --- !u!61 &2434757018738569045
 BoxCollider2D:
   m_ObjectHideFlags: 0
