@@ -151,6 +151,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1872265891575835653}
+  - {fileID: 3057954342714643079}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8890026730836900048
@@ -192,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631e7516deb3a97498ac5e2bf8bb31f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carriageManager: {fileID: 2056677009441482634}
 --- !u!232 &8885926821121983711
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -210,7 +212,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 1}
   m_ConnectedAnchor: {x: 0, y: -1}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.50000024
+  m_Distance: 0.5
   m_MaxDistanceOnly: 1
 --- !u!233 &1993600824330088373
 HingeJoint2D:
@@ -228,7 +230,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 1}
-  m_ConnectedAnchor: {x: 0, y: -1.5000002}
+  m_ConnectedAnchor: {x: 0, y: -1.5}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -282,3 +284,52 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!1001 &5206414663855173295
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7679197621833488028}
+    m_Modifications:
+    - target: {fileID: 3236148776659326576, guid: 5281bc757a938d5458ef2e9d494b7a3f, type: 3}
+      propertyPath: m_Name
+      value: pfb_InventoryCarriage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236148776659326576, guid: 5281bc757a938d5458ef2e9d494b7a3f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075418659835247656, guid: 5281bc757a938d5458ef2e9d494b7a3f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075418659835247656, guid: 5281bc757a938d5458ef2e9d494b7a3f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075418659835247656, guid: 5281bc757a938d5458ef2e9d494b7a3f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5281bc757a938d5458ef2e9d494b7a3f, type: 3}
+--- !u!114 &2056677009441482634 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6109746811600111909, guid: 5281bc757a938d5458ef2e9d494b7a3f, type: 3}
+  m_PrefabInstance: {fileID: 5206414663855173295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae4cbf882a5b3342b0f7ff2adaf794c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &3057954342714643079 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7075418659835247656, guid: 5281bc757a938d5458ef2e9d494b7a3f, type: 3}
+  m_PrefabInstance: {fileID: 5206414663855173295}
+  m_PrefabAsset: {fileID: 0}
