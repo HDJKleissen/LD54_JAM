@@ -20,11 +20,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 input;
     private Vector2 previousInput;
 
+    private FMOD.Studio.EventInstance movementSound;
+
     [SerializeField] private PlayerGas gasTracker;
     // Start is called before the first frame update
     void Start()
     {
         rotation = _rigidbody.rotation;
+        movementSound = FMODUnity.RuntimeManager.CreateInstance("event:/Engine");
     }
 
     // Update is called once per frame
@@ -48,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
             if(previousInput.y == 0)
             {
                 //SFX: Acceleration start (stop everything else)
+                movementSound.start();
             }
             // Player is accelerating
             moveSpeed += _accelerationSpeed * Time.deltaTime;
@@ -57,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
             if (previousInput.y >= 0)
             {
                 //SFX: Active brake start (stop everything else)
+                movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             }
             // Player is actively braking
             moveSpeed -= _activeBrakeSpeed * Time.deltaTime;
@@ -66,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
             if (previousInput.y != 0)
             {
                 //SFX: Passive brake start (stop everything else)
+                movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             }
             // Player is letting vehicle passively brake
             moveSpeed -= _defaultBrakeSpeed * Time.deltaTime;
@@ -76,5 +82,11 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed = Mathf.Clamp(moveSpeed, 0, _maxMoveSpeed);
 
         _rigidbody.velocity = transform.up * moveSpeed;
+    }
+
+    private void OnDestroy()
+    {
+        movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        movementSound.release();
     }
 }
