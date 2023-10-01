@@ -65,11 +65,6 @@ public class CarriageManager : MonoBehaviour
         carriageItem.carriageManager = null;
     }
 
-    private void OnDestroy()
-    {
-    }
-
-
     private void OnEnable()
     {
         IsCarriageOpen = false;
@@ -98,7 +93,6 @@ public class CarriageManager : MonoBehaviour
         accuracyTmp.transform.rotation = Quaternion.identity;
         CloseButtonCanvas.rotation = Quaternion.identity;
     }
-
 
     public void OpenCarriage()
     {

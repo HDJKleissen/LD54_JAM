@@ -25,11 +25,11 @@ public class CarriageItem : MonoBehaviour
     {
         if(carriageManager == null)
         {
-            sprite.color = Color.grey;
+            sprite.color = Color.white;
         }
         else if (carriageManager)
         {
-            sprite.color = Color.white;
+            sprite.color = Color.cyan;
         }
 
         if(carriageManager && !IsFitCorrectly)

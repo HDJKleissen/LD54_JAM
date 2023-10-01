@@ -85,14 +85,14 @@ public class InventoryManager : MonoBehaviour
     private void OpenLeft(CarriageManager carriage)
     {
         carriage.IsOpenLeft = true;
-        carriage.gameObject.transform.localPosition = new Vector3(2.8f, carriage.gameObject.transform.localPosition.y, carriage.gameObject.transform.localPosition.z);
+        carriage.gameObject.transform.localPosition = new Vector3(3.5f, carriage.gameObject.transform.localPosition.y, carriage.gameObject.transform.localPosition.z);
         carriage.CloseButtonCanvas.transform.localPosition = new Vector3(carriage.CloseButtonCanvas.transform.localPosition.x, -2.64f, carriage.CloseButtonCanvas.transform.localPosition.z);
     }
 
     private void OpenRight(CarriageManager carriage)
     {
         carriage.IsOpenLeft = false;
-        carriage.gameObject.transform.localPosition = new Vector3(-2.8f, carriage.gameObject.transform.localPosition.y, carriage.gameObject.transform.localPosition.z);
+        carriage.gameObject.transform.localPosition = new Vector3(-3.5f, carriage.gameObject.transform.localPosition.y, carriage.gameObject.transform.localPosition.z);
         carriage.CloseButtonCanvas.transform.localPosition = new Vector3(carriage.CloseButtonCanvas.transform.localPosition.x, 2.64f, carriage.CloseButtonCanvas.transform.localPosition.z);
 
     }
