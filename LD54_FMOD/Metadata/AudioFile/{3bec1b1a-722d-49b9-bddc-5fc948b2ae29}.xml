@@ -4,9 +4,6 @@
 		<property name="assetPath">
 			<value>jet engine servo layer static v2 high loop.wav</value>
 		</property>
-		<property name="isStreaming">
-			<value>true</value>
-		</property>
 		<property name="frequencyInKHz">
 			<value>96</value>
 		</property>
