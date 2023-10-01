@@ -8,15 +8,76 @@ public class InventoryManager : MonoBehaviour
 
     public List<CarriageManager> openCarriages = new List<CarriageManager>();
     public int maxOpenCarriages = 2;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+
+    //moving items
+    private Vector3 offset;
+    private bool isDragging = false;
+    private Collider2D draggingCollider;
+    [SerializeField] private float rotationSpeed = 5.0f;
 
     // Update is called once per frame
     void Update()
     {
         CheckMouseClick();
+        DragAndDrop();
+        RotateDragging();
+    }
+
+    private void DragAndDrop()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            // Cast a ray from the mouse position
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 10, LayerMask.GetMask("Draggable"));
+
+            if (hit.collider != null)
+            {
+                draggingCollider = hit.collider;
+                offset = (Vector2)draggingCollider.transform.position - hit.point;
+                isDragging = true;
+
+                // set above other objects
+                Transform t = draggingCollider.gameObject.transform;
+                t.position = new Vector3(t.position.x, t.position.y, -1.0f);
+            }
+        }
+        else
+        {
+            if (draggingCollider != null)
+            {
+                // revert z-pos
+                Transform t = draggingCollider.gameObject.transform;
+                t.position = new Vector3(t.position.x, t.position.y, -0.01f);
+
+                isDragging = false;
+                draggingCollider = null;
+            }
+        }
+
+        if (isDragging && draggingCollider != null)
+        {
+            // Update the object's position based on the mouse position
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            draggingCollider.transform.position = new Vector3(mousePosition.x, mousePosition.y, draggingCollider.transform.position.z);
+        }
+    }
+
+    private void RotateDragging()
+    {
+        if (!isDragging)
+        {
+            return;
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            draggingCollider.gameObject.transform.Rotate(new Vector3(0, 0, rotationSpeed) * Time.unscaledDeltaTime);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            draggingCollider.gameObject.transform.Rotate(new Vector3(0, 0, -rotationSpeed) * Time.unscaledDeltaTime);
+        }
     }
 
     void CheckMouseClick()
