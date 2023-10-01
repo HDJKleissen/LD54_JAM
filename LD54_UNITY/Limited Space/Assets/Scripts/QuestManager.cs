@@ -26,7 +26,7 @@ public class QuestManager : MonoBehaviour
     {
         foreach(Planet planet in planets)
         {
-            if (!planet.CheckIsPlanetComplete())
+            if (!planet.IsComplete)
             {
                 return;
             }
