@@ -242,7 +242,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="releaseTime">
-			<value>740</value>
+			<value>1200</value>
 		</property>
 		<property name="releaseShape">
 			<value>0.50099194</value>
@@ -262,7 +262,7 @@
 			<value>0</value>
 		</property>
 		<property name="releaseTime">
-			<value>660</value>
+			<value>1200</value>
 		</property>
 		<property name="releaseShape">
 			<value>1</value>
@@ -300,10 +300,10 @@
 			<value>pitch</value>
 		</property>
 		<property name="rate">
-			<value>0.399999976</value>
+			<value>0.699999988</value>
 		</property>
 		<property name="depth">
-			<value>2</value>
+			<value>3</value>
 		</property>
 	</object>
 	<object class="FadeCurve" id="{6856916c-19cb-40f9-babd-05121e49b8fb}">
