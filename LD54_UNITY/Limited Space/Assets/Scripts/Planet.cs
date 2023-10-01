@@ -10,11 +10,11 @@ public class Planet : MonoBehaviour
     public Transform ItemContainer;
     public List<CarriageItem> items = new List<CarriageItem>();
     public List<PlanetRequirement> requirements = new ();
-
+    [SerializeField] Transform requirementsContainer;
     private void Awake()
     {
         player = FindObjectOfType<PlayerMovement>().transform;
-        requirements = FindObjectsOfType<PlanetRequirement>().ToList();
+        requirements = requirementsContainer.GetComponentsInChildren<PlanetRequirement>().ToList();
     }
 
     // Start is called before the first frame update
