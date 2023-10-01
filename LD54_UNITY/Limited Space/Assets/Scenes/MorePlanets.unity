@@ -365,7 +365,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae4cbf882a5b3342b0f7ff2adaf794c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 200
   <IsCarriageOpen>k__BackingField: 0
   carriage: {fileID: 12804733}
   accuracyTmp: {fileID: 1224696693}
@@ -590,6 +589,38 @@ Transform:
   - {fileID: 453235716}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &62246355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7352480571692676890, guid: 67816f3a8187a75409954333d9722314, type: 3}
+  m_PrefabInstance: {fileID: 3358230742704390341}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &62246361
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62246355}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &64477289
 GameObject:
   m_ObjectHideFlags: 0
@@ -3803,6 +3834,7 @@ MonoBehaviour:
   <WorldItemsContainer>k__BackingField: {fileID: 296230544}
   openCarriages: []
   maxOpenCarriages: 2
+  rotationSpeed: 5
 --- !u!4 &698572146
 Transform:
   m_ObjectHideFlags: 0
@@ -6050,7 +6082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae4cbf882a5b3342b0f7ff2adaf794c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 200
   <IsCarriageOpen>k__BackingField: 0
   carriage: {fileID: 1309233143}
   accuracyTmp: {fileID: 527244250}
@@ -6827,7 +6858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae4cbf882a5b3342b0f7ff2adaf794c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 200
   <IsCarriageOpen>k__BackingField: 0
   carriage: {fileID: 1478455328}
   accuracyTmp: {fileID: 1561497328}
@@ -7805,7 +7835,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae4cbf882a5b3342b0f7ff2adaf794c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 200
   <IsCarriageOpen>k__BackingField: 0
   carriage: {fileID: 1564186184}
   accuracyTmp: {fileID: 1869605440}
@@ -9766,7 +9795,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7352480571692676890, guid: 67816f3a8187a75409954333d9722314, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 62246361}
   m_SourcePrefab: {fileID: 100100000, guid: 67816f3a8187a75409954333d9722314, type: 3}
 --- !u!1001 &6603971684753168676
 PrefabInstance:
