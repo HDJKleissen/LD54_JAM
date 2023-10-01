@@ -11,6 +11,8 @@ public class Planet : MonoBehaviour
     public List<CarriageItem> items = new List<CarriageItem>();
     public List<PlanetRequirement> requirements = new ();
     [SerializeField] Transform requirementsContainer;
+    public bool IsComplete { get; private set; } = false;
+
     private void Awake()
     {
         player = FindObjectOfType<PlayerMovement>().transform;
@@ -28,6 +30,22 @@ public class Planet : MonoBehaviour
     {
         // nice performance lol, the adding and removing of objects is too shitty so have to do it like dies
         CheckRequirements();
+
+    }
+
+    public bool CheckIsPlanetComplete()
+    {
+        bool complete = true;
+        foreach(PlanetRequirement requirement in requirements)
+        {
+            if (!requirement.IsComplete)
+            {
+                complete = false;
+            }
+        }
+
+        IsComplete = complete;
+        return IsComplete;
     }
 
     void CheckRequirements()
