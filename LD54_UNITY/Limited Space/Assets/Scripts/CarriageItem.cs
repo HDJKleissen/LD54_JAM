@@ -15,6 +15,14 @@ public class CarriageItem : MonoBehaviour
 
     bool isClippingOutside = false;
 
+    public enum ItemType
+    {
+        Cactus = 1,
+        Box = 2,
+    }
+
+    public ItemType Type;
+
     void Start()
     {
         ItemSize = CalculateArea();
