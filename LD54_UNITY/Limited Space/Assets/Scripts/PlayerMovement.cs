@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 input;
 
+    [SerializeField] private PlayerGas gasTracker;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         
 
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        gasTracker.ReduceGas(Mathf.Clamp(Mathf.Abs(input.x) + Mathf.Abs(input.y), 0, 1));
     }
 
     private void FixedUpdate()

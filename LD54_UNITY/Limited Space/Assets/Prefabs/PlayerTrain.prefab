@@ -181,7 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae4cbf882a5b3342b0f7ff2adaf794c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 200
   <IsCarriageOpen>k__BackingField: 0
   carriage: {fileID: 1120678229683913840}
   accuracyTmp: {fileID: 7174582585021659696}
@@ -1412,6 +1411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 8590253146328503983}
+  Type: 0
 --- !u!1 &1528108705009516849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,6 +1422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2153852277314917811}
   - component: {fileID: 2482912417480478982}
+  - component: {fileID: 5489135064391656089}
   m_Layer: 0
   m_Name: PlayerTrain
   m_TagString: Untagged
@@ -1470,6 +1471,22 @@ MonoBehaviour:
   _containerPrefab: {fileID: 6058707290046082720, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
   _connectorPrefab: {fileID: 280226608904774350, guid: 9585c74d89ad3324bbd41def9eb679fe, type: 3}
   yOffset: -2.5
+--- !u!114 &5489135064391656089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528108705009516849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4725cf57b783d54bb386c66d15c8dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gasSlider: {fileID: 0}
+  gasAmount: 100
+  maxGas: 100
+  useGasMultiplier: 2.5
 --- !u!1 &1613258332264757183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,6 +1659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 193449968026857327}
+  Type: 0
 --- !u!1 &1645351962557465531
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,6 +2047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 7301851532774293733}
+  Type: 0
 --- !u!1 &1924722364147107809
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,6 +2434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 6030642716475177166}
+  Type: 0
 --- !u!1 &2085876540533682986
 GameObject:
   m_ObjectHideFlags: 0
@@ -2621,6 +2641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 5386475196490181141}
+  Type: 0
 --- !u!1 &2352075323994259798
 GameObject:
   m_ObjectHideFlags: 0
@@ -3488,6 +3509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 597674743014054895}
+  Type: 0
 --- !u!1 &3014125754415717495
 GameObject:
   m_ObjectHideFlags: 0
@@ -4558,6 +4580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 4697634004187180810}
+  Type: 0
 --- !u!114 &8294260744569316598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5555,6 +5578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 9200979439074507914}
+  Type: 0
 --- !u!114 &8060249846196417591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5931,7 +5955,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae4cbf882a5b3342b0f7ff2adaf794c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 200
   <IsCarriageOpen>k__BackingField: 0
   carriage: {fileID: 1395606760633786109}
   accuracyTmp: {fileID: 4635568681910848066}
@@ -6138,7 +6161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae4cbf882a5b3342b0f7ff2adaf794c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 200
   <IsCarriageOpen>k__BackingField: 0
   carriage: {fileID: 8430058323061914484}
   accuracyTmp: {fileID: 7184334177849322718}
@@ -6447,7 +6469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae4cbf882a5b3342b0f7ff2adaf794c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 200
   <IsCarriageOpen>k__BackingField: 0
   carriage: {fileID: 3916609593007548957}
   accuracyTmp: {fileID: 218674723312422976}
@@ -7506,6 +7527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 488085323261163016}
+  Type: 0
 --- !u!1 &7301373637774149399
 GameObject:
   m_ObjectHideFlags: 0
@@ -7916,6 +7938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 588306017564313816}
+  Type: 0
 --- !u!114 &6230461096255299798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8393,6 +8416,7 @@ MonoBehaviour:
   _rotateSpeed: 15
   _rotateVelocityRatio: 1
   _rigidbody: {fileID: 7096268238419541041}
+  gasTracker: {fileID: 5489135064391656089}
 --- !u!50 &7096268238419541041
 Rigidbody2D:
   serializedVersion: 4
@@ -8706,6 +8730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 3238693511102608607}
+  Type: 0
 --- !u!114 &4900448388254194074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9698,6 +9723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 2268143732427917688}
+  Type: 0
 --- !u!1 &9199277099324987011
 GameObject:
   m_ObjectHideFlags: 0
