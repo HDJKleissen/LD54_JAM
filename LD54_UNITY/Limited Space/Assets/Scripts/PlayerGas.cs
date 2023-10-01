@@ -18,6 +18,11 @@ public class PlayerGas : MonoBehaviour
         
     }
 
+    public void AddGasPerPercentage(float percentage)
+    {
+        gasAmount += Mathf.Clamp(maxGas * percentage, 0, maxGas);
+    }
+
     // Update is called once per frame
     void Update()
     {

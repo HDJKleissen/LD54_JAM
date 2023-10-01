@@ -8,7 +8,7 @@ public class PlayerMoney : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI moneyTmp;
     public int Money = 99;
-    private bool isSpending = false;
+    public bool isSpending = false;
     // Start is called before the first frame update
     void Start()
     {
