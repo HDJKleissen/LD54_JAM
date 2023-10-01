@@ -1432,6 +1432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 155803186}
   - component: {fileID: 155803185}
+  - component: {fileID: 155803187}
   m_Layer: 0
   m_Name: store
   m_TagString: Untagged
@@ -1506,6 +1507,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155803187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155803184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c27a44384db704796b1d361bf65ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRandomRange: 0.1
+  maxRotationSpeed: 1
 --- !u!1 &160783517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5745,6 +5760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 711696418}
   - component: {fileID: 711696417}
+  - component: {fileID: 711696419}
   m_Layer: 0
   m_Name: foreground_cloud
   m_TagString: Untagged
@@ -5819,6 +5835,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &711696419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711696416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c27a44384db704796b1d361bf65ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRandomRange: 0.1
+  maxRotationSpeed: 1
 --- !u!1 &714420244
 GameObject:
   m_ObjectHideFlags: 0
