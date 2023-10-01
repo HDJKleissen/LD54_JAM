@@ -4,4 +4,5 @@ using UnityEngine;
 
 public class Asteroid : Hazard
 {
+    protected override DamageSource damageSource => DamageSource.Asteroid;
 }
