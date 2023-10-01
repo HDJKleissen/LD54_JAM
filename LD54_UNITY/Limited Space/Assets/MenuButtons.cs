@@ -13,10 +13,9 @@ public class MenuButtons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bool menuIsOpen = pauseMenu.activeInHierarchy || optionsMenu.activeInHierarchy;
-        if (menuIsOpen)
+        if (SceneManager.GetActiveScene().name != "MainMenu")
         {
-            Pause();
+            Unpause();
         }
     }
 
@@ -66,5 +65,15 @@ public class MenuButtons : MonoBehaviour
     public void LoadScene(string name)
     {
         SceneManager.LoadScene(name);
+    }
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        // Application.Quit() does not work in the editor so
+        // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
