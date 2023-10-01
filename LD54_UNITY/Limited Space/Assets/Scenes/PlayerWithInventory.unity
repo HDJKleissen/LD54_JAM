@@ -176,12 +176,8 @@ MonoBehaviour:
   carriage: {fileID: 13866625}
   accuracyTmp: {fileID: 868934398}
   itemContainer: {fileID: 1440081399}
-  <CloseButtonCanvas>k__BackingField: {fileID: 896436828}
-  OutsideColliders:
-  - {fileID: 1507855217}
-  - {fileID: 735383769}
-  - {fileID: 442566102}
-  - {fileID: 1861668797}
+  <CloseButtonCanvas>k__BackingField: {fileID: 0}
+  OutsideColliders: []
   IsOpenLeft: 0
 --- !u!61 &13866625
 BoxCollider2D:
@@ -417,7 +413,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 128045804}
-  <ItemSize>k__BackingField: 0
 --- !u!61 &128045803
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -853,7 +848,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 272537526}
-  <ItemSize>k__BackingField: 0
 --- !u!61 &272537525
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1507,7 +1501,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 334390973}
-  <ItemSize>k__BackingField: 0
 --- !u!61 &334390972
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1680,7 +1673,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 349595160}
-  <ItemSize>k__BackingField: 0
 --- !u!61 &349595159
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1942,12 +1934,8 @@ MonoBehaviour:
   carriage: {fileID: 375419142}
   accuracyTmp: {fileID: 1103826258}
   itemContainer: {fileID: 1785082333}
-  <CloseButtonCanvas>k__BackingField: {fileID: 1106456624}
-  OutsideColliders:
-  - {fileID: 1744741879}
-  - {fileID: 299106503}
-  - {fileID: 162998872}
-  - {fileID: 1962627733}
+  <CloseButtonCanvas>k__BackingField: {fileID: 0}
+  OutsideColliders: []
   IsOpenLeft: 0
 --- !u!61 &375419142
 BoxCollider2D:
@@ -2508,7 +2496,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 549656473}
-  <ItemSize>k__BackingField: 0
 --- !u!61 &549656472
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4047,12 +4034,8 @@ MonoBehaviour:
   carriage: {fileID: 837261460}
   accuracyTmp: {fileID: 1006160143}
   itemContainer: {fileID: 108885425}
-  <CloseButtonCanvas>k__BackingField: {fileID: 557598126}
-  OutsideColliders:
-  - {fileID: 655184605}
-  - {fileID: 1014362679}
-  - {fileID: 1347269974}
-  - {fileID: 1368125569}
+  <CloseButtonCanvas>k__BackingField: {fileID: 0}
+  OutsideColliders: []
   IsOpenLeft: 0
 --- !u!61 &837261460
 BoxCollider2D:
@@ -4445,7 +4428,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 996116619}
-  <ItemSize>k__BackingField: 0
 --- !u!60 &996116618
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5594,7 +5576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 1216984920}
-  <ItemSize>k__BackingField: 0
 --- !u!61 &1216984919
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5794,7 +5775,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 1230783909}
-  <ItemSize>k__BackingField: 0
 --- !u!60 &1230783908
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6005,7 +5985,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 1249368905}
-  <ItemSize>k__BackingField: 0
 --- !u!60 &1249368904
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7115,7 +7094,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 1523215033}
-  <ItemSize>k__BackingField: 0
 --- !u!60 &1523215032
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9244,83 +9222,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1968241866
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1993600824330088373, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 4.2062597
-      objectReference: {fileID: 0}
-    - target: {fileID: 1993600824330088373, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -1.5896049
-      objectReference: {fileID: 0}
-    - target: {fileID: 3057954342714643079, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6058707290046082720, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_Name
-      value: Container
-      objectReference: {fileID: 0}
-    - target: {fileID: 7253604274073041119, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7679197621833488028, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 7679197621833488028, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7679197621833488028, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7679197621833488028, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9773421
-      objectReference: {fileID: 0}
-    - target: {fileID: 7679197621833488028, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7679197621833488028, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7679197621833488028, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.21166594
-      objectReference: {fileID: 0}
-    - target: {fileID: 7679197621833488028, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7679197621833488028, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7679197621833488028, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 24.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 8885926821121983711, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
-      propertyPath: m_Distance
-      value: 4.247382
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
 --- !u!1 &2007258522
 GameObject:
   m_ObjectHideFlags: 0
@@ -9541,7 +9442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 2045401745}
-  <ItemSize>k__BackingField: 0
 --- !u!61 &2045401744
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9719,12 +9619,8 @@ MonoBehaviour:
   carriage: {fileID: 2051030753}
   accuracyTmp: {fileID: 1646336632}
   itemContainer: {fileID: 583571611}
-  <CloseButtonCanvas>k__BackingField: {fileID: 1672551814}
-  OutsideColliders:
-  - {fileID: 572994570}
-  - {fileID: 504936173}
-  - {fileID: 1731547467}
-  - {fileID: 1091219331}
+  <CloseButtonCanvas>k__BackingField: {fileID: 0}
+  OutsideColliders: []
   IsOpenLeft: 0
 --- !u!61 &2051030753
 BoxCollider2D:
@@ -9853,7 +9749,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 2067218947}
-  <ItemSize>k__BackingField: 0
 --- !u!61 &2067218946
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10311,6 +10206,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134698231}
   m_CullTransparentMesh: 1
+--- !u!1001 &4011673275970085754
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 187309508892774939, guid: fdb6763e80021e34b9cf6099cff36012, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 187309508892774939, guid: fdb6763e80021e34b9cf6099cff36012, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 187309508892774939, guid: fdb6763e80021e34b9cf6099cff36012, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187309508892774939, guid: fdb6763e80021e34b9cf6099cff36012, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9773421
+      objectReference: {fileID: 0}
+    - target: {fileID: 187309508892774939, guid: fdb6763e80021e34b9cf6099cff36012, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187309508892774939, guid: fdb6763e80021e34b9cf6099cff36012, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187309508892774939, guid: fdb6763e80021e34b9cf6099cff36012, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.21166594
+      objectReference: {fileID: 0}
+    - target: {fileID: 187309508892774939, guid: fdb6763e80021e34b9cf6099cff36012, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187309508892774939, guid: fdb6763e80021e34b9cf6099cff36012, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 187309508892774939, guid: fdb6763e80021e34b9cf6099cff36012, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 24.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543872860723920011, guid: fdb6763e80021e34b9cf6099cff36012, type: 3}
+      propertyPath: m_Name
+      value: Container
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fdb6763e80021e34b9cf6099cff36012, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -10322,5 +10274,5 @@ SceneRoots:
   - {fileID: 698572146}
   - {fileID: 296230544}
   - {fileID: 1187471237}
-  - {fileID: 1968241866}
+  - {fileID: 4011673275970085754}
   - {fileID: 1790126168}

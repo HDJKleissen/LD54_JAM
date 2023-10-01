@@ -8,6 +8,7 @@ public class SetupTrain : MonoBehaviour
     [SerializeField] private int _containerAmount;
     [SerializeField] private Rigidbody2D _trainCabin;
     [SerializeField] private GameObject _containerPrefab;
+    [SerializeField] private GameObject _connectorPrefab;
     [SerializeField] private float yOffset;
 
     // Start is called before the first frame update
@@ -35,7 +36,7 @@ public class SetupTrain : MonoBehaviour
     {
         foreach (Transform child in transform.GetComponentsInChildren<Transform>())
         {
-            if (child != transform && child.GetComponent<Container>() != null)
+            if (child != transform && (child.GetComponent<Container>() != null || child.GetComponent<ContainerConnector>() != null))
             {
                 DestroyImmediate(child.gameObject);
             }
@@ -52,6 +53,11 @@ public class SetupTrain : MonoBehaviour
             DistanceJoint2D distanceJoint = container.GetComponent<DistanceJoint2D>();
             hingeJoint.connectedBody = previousContainer;
             distanceJoint.connectedBody = previousContainer;
+
+            GameObject connector = Instantiate(_connectorPrefab);
+            connector.transform.parent = transform;
+            connector.GetComponent<ContainerConnector>().SetConnection(previousContainer.transform, container.transform);
+
             previousContainer = container.GetComponent<Rigidbody2D>();
         }
     }
