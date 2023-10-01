@@ -70,6 +70,11 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
+        if(draggingCollider == null)
+        {
+            return;
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
             draggingCollider.gameObject.transform.Rotate(new Vector3(0, 0, rotationSpeed) * Time.unscaledDeltaTime);

@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private float rotation;
 
     private Vector2 input;
+    private Vector2 previousInput;
 
     [SerializeField] private PlayerGas gasTracker;
     // Start is called before the first frame update
@@ -29,8 +30,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
+        previousInput = input;
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         gasTracker.ReduceGas(Mathf.Clamp(Mathf.Abs(input.x) + Mathf.Abs(input.y), 0, 1));
     }
@@ -45,18 +45,32 @@ public class PlayerMovement : MonoBehaviour
 
         if (accelerationInput > 0)
         {
+            if(previousInput.y == 0)
+            {
+                //SFX: Acceleration start (stop everything else)
+            }
+            // Player is accelerating
             moveSpeed += _accelerationSpeed * Time.deltaTime;
         }
         else if (accelerationInput < 0)
         {
+            if (previousInput.y >= 0)
+            {
+                //SFX: Active brake start (stop everything else)
+            }
+            // Player is actively braking
             moveSpeed -= _activeBrakeSpeed * Time.deltaTime;
         }
         else
         {
+            if (previousInput.y != 0)
+            {
+                //SFX: Passive brake start (stop everything else)
+            }
+            // Player is letting vehicle passively brake
             moveSpeed -= _defaultBrakeSpeed * Time.deltaTime;
         }
-
-
+        
         _rigidbody.rotation -= rotationInput * _rotateSpeed * Time.deltaTime;
 
         moveSpeed = Mathf.Clamp(moveSpeed, 0, _maxMoveSpeed);

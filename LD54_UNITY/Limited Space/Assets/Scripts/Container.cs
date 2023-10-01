@@ -5,9 +5,26 @@ using UnityEngine;
 public class Container : MonoBehaviour, IDamageable
 {
     private CarriageManager carriageManager;
-    public void Damage(float amount)
+    public void Damage(float amount, DamageSource source)
     {
-        // Choose random amount of cargo items, then distribute damage. For now we log to console
+        // Amount is usually 0-10ish with 10 being a hard hit
+
+        switch (source)
+        {
+            case DamageSource.None:
+                break;
+            case DamageSource.Asteroid:
+                // SFX: Asteroid hit, can use amount for intensity or sth
+                break;
+            case DamageSource.Pirate:
+                // SFX: Pirate hit, can use amount for intensity or sth
+                break;
+            case DamageSource.Tumbleweed:
+                // SFX: Tumbleweed hit, can use amount for intensity or sth
+                break;
+        }
+
+        // Choose random amount of cargo items to delete, depending on damage. For now we log to console
         Debug.Log(name + ": ow (" + amount + ")");
     }
 
