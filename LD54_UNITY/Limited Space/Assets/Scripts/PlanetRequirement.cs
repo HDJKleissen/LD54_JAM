@@ -12,7 +12,7 @@ public class PlanetRequirement : MonoBehaviour
     [SerializeField] private Image requiredImage;
     [SerializeField] private Image background;
     public int CurrentlyHolding;
-
+    public bool IsComplete { get; private set; } = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,11 +28,13 @@ public class PlanetRequirement : MonoBehaviour
     public void Complete()
     {
         background.color = Color.green;
+        IsComplete = true;
     }
 
     public void InComplete()
     {
         background.color = Color.white;
+        IsComplete = false;
     }
 
     public void DisplayRequirements()

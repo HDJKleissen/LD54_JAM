@@ -10,7 +10,10 @@ public class Planet : MonoBehaviour
     public Transform ItemContainer;
     public List<CarriageItem> items = new List<CarriageItem>();
     public List<PlanetRequirement> requirements = new ();
+    public int TotalMoneyReward = 25;
     [SerializeField] Transform requirementsContainer;
+    public bool IsComplete { get; private set; } = false;
+
     private void Awake()
     {
         player = FindObjectOfType<PlayerMovement>().transform;
@@ -27,7 +30,79 @@ public class Planet : MonoBehaviour
     void Update()
     {
         // nice performance lol, the adding and removing of objects is too shitty so have to do it like dies
-        CheckRequirements();
+        if (!IsComplete)
+        {
+            // if items are on the planet
+            CheckRequirements();
+            CheckIsPlanetComplete();
+
+            if (IsComplete)
+            {
+                Debug.LogWarning($"PLANET COMPLETE {items.Count}");
+                CompletePlanet();
+            }
+        }
+    }
+
+    void DeleteItems()
+    {
+        int totalDelete = items.Count;
+        for (int i = 0; i < totalDelete; i++)
+        {
+            Destroy(items[0].gameObject);
+        }
+
+        items.Clear();
+    }
+
+    void CompletePlanet()
+    {
+        //TODO play complete planet audio
+        Sequence mySequence = DOTween.Sequence();
+        for (int i = 0; i < items.Count; i++)
+        {
+            mySequence.Join(items[i].transform.DOMove(  this.transform.position + new Vector3(Random.Range(-1, 1), Random.Range(-1,1), 0),
+                                                        Random.Range(0.5f, 0.7f),
+                                                        false)
+                                                        .SetEase(Ease.InQuad));
+        }
+
+        mySequence.OnComplete(() =>
+        {
+            DeleteItems();
+            FindObjectOfType<PlayerMoney>().ChangeMoney(TotalMoneyReward);
+            HideObjectiveCanvas();
+        });
+    }
+
+    // fade out and disable
+    private void HideObjectiveCanvas()
+    {
+        CanvasGroup canvas = requirementsContainer.parent.parent.GetComponent<CanvasGroup>();
+        DOTween.To(() => canvas.alpha, x => canvas.alpha = x, 0, 1f)
+             .OnUpdate(() => {
+
+             })
+             .OnComplete(() => {
+                 // This function will be called when the tween is complete.
+                 //Debug.Log("Tween Complete!");
+                requirementsContainer.parent.parent.gameObject.SetActive(false);
+             });
+    }
+
+    public bool CheckIsPlanetComplete()
+    {
+        bool complete = true;
+        foreach(PlanetRequirement requirement in requirements)
+        {
+            if (!requirement.IsComplete)
+            {
+                complete = false;
+            }
+        }
+
+        IsComplete = complete;
+        return IsComplete;
     }
 
     void CheckRequirements()
