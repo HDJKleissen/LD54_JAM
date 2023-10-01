@@ -33,8 +33,19 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Honk"))
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Truck Horn");
+        }
+        if (Input.GetButtonUp("Honk"))
+        {
+            // Stop Horn Sound?
+        }
+
+        Vector2 velocity = _rigidbody.velocity;
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        gasTracker.ReduceGas(Mathf.Clamp(Mathf.Abs(input.x) + Mathf.Abs(input.y), 0, 1));
+        float rotationInput = input.x * velocity.magnitude * _rotateVelocityRatio;
+        gasTracker.ReduceGas(Mathf.Clamp(Mathf.Abs(input.y) + Mathf.Abs(rotationInput), 0.001f, 1));
     }
 
     public void IncreaseMaxMovementSpeed(float amount)
@@ -71,6 +82,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 //SFX: Active brake start (stop everything else)
                 movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                if (velocity.magnitude >= 0.1f)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Brake");
+                }
             }
             // Player is actively braking
             moveSpeed -= _activeBrakeSpeed * Time.deltaTime;
