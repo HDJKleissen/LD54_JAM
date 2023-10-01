@@ -10629,6 +10629,10 @@ PrefabInstance:
       propertyPath: gasSlider
       value: 
       objectReference: {fileID: 1939511104}
+    - target: {fileID: 5489135064391656089, guid: 6e458e8bc3c65ef4c881a0903f2a8896, type: 3}
+      propertyPath: useGasMultiplier
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7301373637774149399, guid: 6e458e8bc3c65ef4c881a0903f2a8896, type: 3}

@@ -1486,7 +1486,7 @@ MonoBehaviour:
   gasSlider: {fileID: 0}
   gasAmount: 100
   maxGas: 100
-  useGasMultiplier: 2.5
+  useGasMultiplier: 5
 --- !u!1 &1613258332264757183
 GameObject:
   m_ObjectHideFlags: 0
