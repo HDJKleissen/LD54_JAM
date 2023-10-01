@@ -30,7 +30,13 @@ public class BackgroundParallax : MonoBehaviour
     Vector2 _planet1StartPos;
     Vector2 _planet2StartPos;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        if(_camera == null)
+        {
+            _camera = FindObjectOfType<Camera>();
+        }
+    }
     void Start()
     {
         _backgroundSize = _background.GetComponent<SpriteRenderer>().bounds.size;
