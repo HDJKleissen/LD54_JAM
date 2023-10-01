@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        previousInput = input;
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         gasTracker.ReduceGas(Mathf.Clamp(Mathf.Abs(input.x) + Mathf.Abs(input.y), 0, 1));
     }
@@ -82,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed = Mathf.Clamp(moveSpeed, 0, _maxMoveSpeed);
 
         _rigidbody.velocity = transform.up * moveSpeed;
+        previousInput = input;
     }
 
     private void OnDestroy()
