@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 //SFX: Active brake start (stop everything else)
                 movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Brake");
             }
             // Player is actively braking
             moveSpeed -= _activeBrakeSpeed * Time.deltaTime;
