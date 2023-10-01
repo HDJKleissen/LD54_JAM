@@ -1423,6 +1423,7 @@ GameObject:
   - component: {fileID: 2153852277314917811}
   - component: {fileID: 2482912417480478982}
   - component: {fileID: 5489135064391656089}
+  - component: {fileID: 4694853132288765976}
   m_Layer: 0
   m_Name: PlayerTrain
   m_TagString: Untagged
@@ -1487,6 +1488,21 @@ MonoBehaviour:
   gasAmount: 100
   maxGas: 100
   useGasMultiplier: 5
+--- !u!114 &4694853132288765976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528108705009516849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f52b52a40247274d9418a32d3a4aff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyTmp: {fileID: 0}
+  Money: 99
+  isSpending: 0
 --- !u!1 &1613258332264757183
 GameObject:
   m_ObjectHideFlags: 0

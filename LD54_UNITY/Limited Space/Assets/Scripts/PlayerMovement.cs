@@ -37,6 +37,16 @@ public class PlayerMovement : MonoBehaviour
         gasTracker.ReduceGas(Mathf.Clamp(Mathf.Abs(input.x) + Mathf.Abs(input.y), 0, 1));
     }
 
+    public void IncreaseMaxMovementSpeed(float amount)
+    {
+        _maxMoveSpeed += amount;
+    }
+
+    public void IncreaseBreakSpeed(float amount)
+    {
+        _activeBrakeSpeed += amount;
+    }
+
     private void FixedUpdate()
     {
         Vector2 velocity = _rigidbody.velocity;
