@@ -37,7 +37,7 @@ public class ShopItem : MonoBehaviour
 
         if(type == Type.Gas)
         {
-            buttonText.text = "+"+amount.ToString() + "%";
+            buttonText.text = amount.ToString();
         }
     }
     // Start is called before the first frame update

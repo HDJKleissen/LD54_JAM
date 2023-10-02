@@ -15,6 +15,7 @@ public class Planet : MonoBehaviour
     [SerializeField] Transform requirementsContainer;
     public bool IsComplete { get; private set; } = false;
     CanvasGroup canvas;
+    bool playedBark;
 
     private void Awake()
     {
@@ -117,8 +118,10 @@ public class Planet : MonoBehaviour
             }
             requirements.Clear();
 
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Delivery");
             FindObjectOfType<PlayerMoney>().ChangeMoney(moneyAdded);
             IsComplete = false;
+            playedBark = false;
         });
     }
 
@@ -188,6 +191,15 @@ public class Planet : MonoBehaviour
             {
                 requirement.InComplete();
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && requirements.Count > 0 && !playedBark)
+        {
+            playedBark = true;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Quest Bark");
         }
     }
 

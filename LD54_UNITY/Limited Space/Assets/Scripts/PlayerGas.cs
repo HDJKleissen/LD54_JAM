@@ -7,7 +7,7 @@ public class PlayerGas : MonoBehaviour
 {
     [SerializeField] Slider gasSlider;
     [SerializeField] float gasAmount = 100.0f;
-    [SerializeField] float maxGas = 100.0f;
+    public float maxGas = 100.0f;
     [SerializeField] float useGasMultiplier = 1.0f;
 
     private bool isRanOut = false;
@@ -20,7 +20,13 @@ public class PlayerGas : MonoBehaviour
 
     public void AddGasPerPercentage(float percentage)
     {
-        gasAmount += Mathf.Clamp(maxGas * percentage, 0, maxGas);
+        AddGas(Mathf.Clamp(maxGas * percentage, 0, maxGas));
+    }
+
+    public void AddGas(float amount)
+    {
+        gasAmount += amount;
+        gasAmount = Mathf.Clamp(gasAmount, 0, maxGas);
     }
 
     // Update is called once per frame
@@ -31,6 +37,8 @@ public class PlayerGas : MonoBehaviour
         if(gasAmount < 0 && !isRanOut)
         {
             isRanOut = true;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Fuel Empty");
+            //TODO add end screen
             Debug.LogWarning("GAME OVER!!");
         }
     }

@@ -75,6 +75,7 @@ public class CarriageItem : MonoBehaviour
                 if (!isClippingOutside)
                 {
                     collision.GetComponent<CarriageManager>().AddCarriageItem(this);
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Drop");
                 }
             }
         }

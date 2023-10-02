@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class RandomEventManager : MonoBehaviour
 {
+    [SerializeField] float minTimeBetweenEvents;
+    [SerializeField] float maxTimeBetweenEvents;
     [SerializeField] PlayerMovement player;
+
+    float nextEventTime;
+    float timer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +21,10 @@ public class RandomEventManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void SetNextTimer()
+    {
+        nextEventTime = Random.Range(minTimeBetweenEvents, maxTimeBetweenEvents);
     }
 }

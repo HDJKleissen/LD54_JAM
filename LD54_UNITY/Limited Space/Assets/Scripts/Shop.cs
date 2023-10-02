@@ -91,6 +91,16 @@ public class Shop : MonoBehaviour
             setupTrain.AddContainer();
         }
     }
+    public void BuyRepair(ShopItem item)
+    {
+        if (Buy(item.price))
+        {
+            //SFX: Wrench sound
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Repair");
+            Debug.LogWarning("Repairing!");
+            setupTrain.RepairTrain();
+        }
+    }
 
     public void BuyExtraSpeed(ShopItem item)
     {
@@ -113,13 +123,24 @@ public class Shop : MonoBehaviour
             Debug.LogWarning("ADding Better Brakes!");
         }
     }
+    public void BuyExtraGasTank(ShopItem item)
+    {
+        if (Buy(item.price))
+        {
+            //SFX: Wrench sound
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Repair");
+            movement.IncreaseMaxFuel(item.amount);
+            Debug.LogWarning("ADding Better Fuel tanks!");
+        }
+    }
 
     public void FillGas(ShopItem item)
     {
         if (Buy(item.price))
         {
             //SFX: Fill Gas
-            gas.AddGasPerPercentage(item.amount);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Refuel");
+            gas.AddGas(item.amount);
             Debug.LogWarning("Filling Gas!!");
         }
     }

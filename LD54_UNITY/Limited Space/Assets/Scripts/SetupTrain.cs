@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System;
 
 public class SetupTrain : MonoBehaviour
 {
@@ -94,6 +95,15 @@ public class SetupTrain : MonoBehaviour
             connector.GetComponent<ContainerConnector>().SetConnection(previousContainer.transform, container.transform);
 
             previousContainer = container.GetComponent<Rigidbody2D>();
+        }
+    }
+
+    internal void RepairTrain()
+    {
+        _trainCabin.GetComponent<PlayerMovement>().RepairFull();
+        foreach (Container container in containers)
+        {
+            container.RepairFull();
         }
     }
 }

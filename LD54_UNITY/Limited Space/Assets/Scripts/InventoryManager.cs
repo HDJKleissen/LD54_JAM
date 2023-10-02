@@ -40,6 +40,8 @@ public class InventoryManager : MonoBehaviour
                 offset = (Vector2)draggingCollider.transform.position - hit.point;
                 isDragging = true;
 
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Pickup");
+
                 // set above other objects
                 Transform t = draggingCollider.gameObject.transform;
                 t.position = new Vector3(t.position.x, t.position.y, -1.0f);

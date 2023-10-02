@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class CameraZoom : MonoBehaviour
 {
-    [SerializeField] CinemachineVirtualCamera vCam;
+    [SerializeField] Camera cam;
     [SerializeField] int minZoom, maxZoom, zoomSpeed;
 
     // Start is called before the first frame update
@@ -19,8 +19,8 @@ public class CameraZoom : MonoBehaviour
     {
         if (Input.mouseScrollDelta.y != 0)
         {
-            vCam.m_Lens.OrthographicSize -= Mathf.Sign(Input.mouseScrollDelta.y) * zoomSpeed;
+            cam.orthographicSize -= Mathf.Sign(Input.mouseScrollDelta.y) * zoomSpeed * Time.deltaTime;
         }
-        vCam.m_Lens.OrthographicSize = Mathf.Clamp(vCam.m_Lens.OrthographicSize, minZoom, maxZoom);
+        cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
     }
 }

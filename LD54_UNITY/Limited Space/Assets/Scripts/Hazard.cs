@@ -22,5 +22,7 @@ public enum DamageSource
     None,
     Asteroid,
     Pirate,
-    Tumbleweed
+    Tumbleweed,
+    Container,
+    Player
 }

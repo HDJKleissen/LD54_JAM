@@ -1,10 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Container : MonoBehaviour, IDamageable
+public class Container : Hazard, IDamageable
 {
+    protected override DamageSource damageSource => DamageSource.Container;
+
+    public float maxHealth = 15;
+    float health = 15;
+
     private CarriageManager carriageManager;
+    [SerializeField] SpriteRenderer sprenderer;
+
     public void Damage(float amount, DamageSource source)
     {
         // Amount is usually 0-10ish with 10 being a hard hit
@@ -98,35 +106,44 @@ public class Container : MonoBehaviour, IDamageable
             default:
                 if (amount > 10f)
                 {
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/Pirate Impact");
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Carriage Impact");
                     // SFX: Very Hard Default hit
                 }
                 else if (amount > 7.5f)
                 {
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/Pirate Impact");
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Carriage Impact");
                     // SFX: Hard Default hit
                 }
                 else if (amount > 5f)
                 {
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/Pirate Impact");
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Carriage Impact");
                     // SFX: Medium Default hit
                 }
                 else if (amount > 2.5f)
                 {
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/Pirate Impact");
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Carriage Impact");
                     // SFX: Light Default hit
                 }
                 else
                 {
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/Pirate Impact");
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Carriage Impact");
                     // SFX: Very Light Default hit
                 }
                 // SFX: Default hit, can use amount for intensity or sth
                 break;
         }
 
-        // Choose random amount of cargo items to delete, depending on damage. For now we log to console
-        Debug.Log(name + ": ow (" + amount + ")");
+        health -= amount;
+        if(health < 0)
+        {
+            sprenderer.color = new Color(.2f, .2f, .2f);
+        }
+    }
+
+    internal void RepairFull()
+    {
+        health = maxHealth;
+        sprenderer.color = new Color(1, 1, 1);
     }
 
     // Start is called before the first frame update
@@ -143,6 +160,9 @@ public class Container : MonoBehaviour, IDamageable
 
     public void OnClick(InventoryManager inventoryManager)
     {
-        inventoryManager.SetCarriageState(carriageManager);
+        if (health > 0)
+        {
+            inventoryManager.SetCarriageState(carriageManager);
+        }
     }
 }
