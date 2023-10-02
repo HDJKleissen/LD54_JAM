@@ -18,12 +18,13 @@ public class PirateMovement : Hazard, IDamageable
     [SerializeField] private float _rotateVelocityRatio;
 
     [SerializeField] private Rigidbody2D _rigidbody;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 
     public float rotationInput;
 
     public Vector2 input;
 
-    [SerializeField] float health = 15;
+    public float health = 15;
     [SerializeField] float chaseTime = 0;
     [SerializeField] float destroyTime = 0;
     [SerializeField] float timer = 0;
@@ -45,7 +46,7 @@ public class PirateMovement : Hazard, IDamageable
         {
             dotProd = -dotProd;
 
-            if(timer > destroyTime)
+            if(timer > destroyTime && !_spriteRenderer.isVisible)
             {
                 Destroy(gameObject);
             }
@@ -205,5 +206,9 @@ public class PirateMovement : Hazard, IDamageable
                 break;
         }
         health -= amount;
+        if(health < 0)
+        {
+            _spriteRenderer.color = new Color(.5f, .5f, .5f);
+        }
     }
 }

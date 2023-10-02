@@ -32,6 +32,10 @@ public class SmogPirarticleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (pirateMovement.health <= 0)
+        {
+            Destroy(gameObject);
+        }
         // Can't do this on one line for some reason >:I
         var lMain = leftSmog.main;
         var rMain = rightSmog.main;
