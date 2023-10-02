@@ -2,10 +2,10 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{6c0678a1-a418-40a6-a7e7-caf08ed96c45}">
 		<property name="name">
-			<value>UI Back</value>
+			<value>UIBack</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2184131a-0974-4712-b616-3f832799c89d}</destination>
@@ -53,7 +53,7 @@
 			<destination>{83c1ee3e-2767-4162-aa76-3013cda99840}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{0869f4b6-edfc-4023-b5e3-9d8c5ef3336c}</destination>
+			<destination>{3de785e9-fae2-4844-b179-889aecc5311d}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{78ac538f-fdaf-495b-a7c8-10bfc7e5c45d}" />
@@ -119,7 +119,6 @@
 	<object class="MixerBusEffectChain" id="{84cbb903-f3f0-4fe8-98cc-6c7c5be7bf6f}">
 		<relationship name="effects">
 			<destination>{a53b8606-5279-4d0e-b060-60d8a7926e9b}</destination>
-			<destination>{807df7ed-850c-4385-bf39-a895831ad0f9}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f80add4d-75f9-4327-9092-d3f534da28bb}" />
@@ -131,6 +130,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{d2aa6506-1bb6-4292-81f9-cc76e40d022f}" />
 	<object class="MixerBusFader" id="{a53b8606-5279-4d0e-b060-60d8a7926e9b}" />
-	<object class="SpatialiserEffect" id="{807df7ed-850c-4385-bf39-a895831ad0f9}" />
 	<object class="MixerBusFader" id="{0c1b28ce-bbb2-4f57-9e79-110ef3096c92}" />
 </objects>

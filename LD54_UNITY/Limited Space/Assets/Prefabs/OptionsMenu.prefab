@@ -370,6 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2230001615416872502}
   - component: {fileID: 6794362645129576117}
+  - component: {fileID: 921884874283980286}
   m_Layer: 5
   m_Name: SFXSlider
   m_TagString: Untagged
@@ -449,7 +450,32 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 921884874283980286}
+        m_TargetAssemblyTypeName: BusController, Assembly-CSharp
+        m_MethodName: VolumeLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &921884874283980286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2388936200973479184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a92c7f90ed4b4b1588785954d8fdc59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  busPath: SFXBus
 --- !u!1 &3529352273675494091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,6 +1341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3491830081496330909}
   - component: {fileID: 3897044983869999508}
+  - component: {fileID: 1545661505849501345}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -1394,7 +1421,32 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1545661505849501345}
+        m_TargetAssemblyTypeName: BusController, Assembly-CSharp
+        m_MethodName: VolumeLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1545661505849501345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6883726410296738102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a92c7f90ed4b4b1588785954d8fdc59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  busPath: MusicBus
 --- !u!1 &7069904813095331279
 GameObject:
   m_ObjectHideFlags: 0
