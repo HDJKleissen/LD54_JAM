@@ -93,7 +93,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{bc969aae-c3ff-41a1-ae60-592c92db07c1}">
 		<property name="volume">
-			<value>-16</value>
+			<value>-18</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{f3320759-7c95-4834-9c9d-bbb72e6a460e}</destination>
@@ -223,7 +223,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>11.5</value>
+			<value>24</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{8cfb15b5-a177-445a-8311-69716e88c471}">
@@ -231,7 +231,7 @@
 			<value>volume</value>
 		</property>
 		<property name="amount">
-			<value>1.5</value>
+			<value>2.5</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{1792a7e7-217d-4e81-bade-42d36334a540}">
@@ -270,7 +270,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>9.5</value>
+			<value>23.5</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{3b78b781-d8c7-4aa5-ae57-e764df447ddb}">
@@ -278,7 +278,7 @@
 			<value>volume</value>
 		</property>
 		<property name="amount">
-			<value>1.5</value>
+			<value>3</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{ba29b974-1180-4390-93dc-1ed749466bba}">

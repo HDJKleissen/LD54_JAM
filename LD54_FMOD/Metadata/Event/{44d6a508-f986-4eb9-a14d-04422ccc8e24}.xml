@@ -80,7 +80,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{ea7ef28f-7971-4095-958b-e3514997f4bf}">
 		<property name="volume">
-			<value>-7.5</value>
+			<value>-15</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{feb63bc1-9b79-4ee4-bedc-3fe104863322}</destination>
@@ -130,6 +130,7 @@
 	<object class="MixerBusEffectChain" id="{feb63bc1-9b79-4ee4-bedc-3fe104863322}">
 		<relationship name="effects">
 			<destination>{1b47221a-c760-4815-abb7-1fc108921140}</destination>
+			<destination>{94a3c34e-4b77-42ff-bf32-0dbd03f2adf3}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{fd80bbaa-f212-42a7-a243-923804c69aa4}" />
@@ -139,7 +140,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>19</value>
+			<value>25</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{f085e891-5ff7-420f-a036-f53e303c22e5}">
@@ -147,7 +148,7 @@
 			<value>volume</value>
 		</property>
 		<property name="amount">
-			<value>3</value>
+			<value>6</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{ef5d9ca6-e592-4180-a75e-083fd50f2faa}">
@@ -177,5 +178,16 @@
 	</object>
 	<object class="MixerBusPanner" id="{9dfccfa7-1063-41f1-9f29-6951163bf188}" />
 	<object class="MixerBusFader" id="{1b47221a-c760-4815-abb7-1fc108921140}" />
+	<object class="MixerSend" id="{94a3c34e-4b77-42ff-bf32-0dbd03f2adf3}">
+		<property name="level">
+			<value>-19</value>
+		</property>
+		<property name="inputFormat">
+			<value>0</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{2db9af8c-c6e4-4f34-822f-92d6ac89631c}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{9149edfa-5799-41f5-a981-fbf7758c1887}" />
 </objects>
