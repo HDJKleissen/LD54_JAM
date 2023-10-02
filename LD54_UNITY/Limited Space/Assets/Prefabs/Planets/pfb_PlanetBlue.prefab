@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1484313957011738925, guid: c8692f3e0e14d1643bcf84bd97b29e1b, type: 3}
       propertyPath: m_Name
-      value: pfb_PlanetContainer Variant
+      value: pfb_PlanetBlue
       objectReference: {fileID: 0}
     - target: {fileID: 2011574364457739766, guid: c8692f3e0e14d1643bcf84bd97b29e1b, type: 3}
       propertyPath: m_AnchorMax.y
