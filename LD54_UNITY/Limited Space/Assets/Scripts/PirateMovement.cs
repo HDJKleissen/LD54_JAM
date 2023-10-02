@@ -42,6 +42,7 @@ public class PirateMovement : Hazard, IDamageable
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
         movementSound = FMODUnity.RuntimeManager.CreateInstance("event:/PirateEngine");
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(movementSound, transform, GetComponent<Rigidbody2D>());
 
     }
 
