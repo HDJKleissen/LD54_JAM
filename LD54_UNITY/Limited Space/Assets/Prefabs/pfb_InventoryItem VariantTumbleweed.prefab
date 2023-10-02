@@ -57,6 +57,10 @@ PrefabInstance:
       value: pfb_InventoryItem VariantTumbleweed
       objectReference: {fileID: 0}
     - target: {fileID: 3060212761329412372, guid: 0ff746ed2095fac4f864c8079723783d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060212761329412372, guid: 0ff746ed2095fac4f864c8079723783d, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
       value: 0.5
       objectReference: {fileID: 0}
