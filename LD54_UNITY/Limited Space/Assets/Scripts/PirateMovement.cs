@@ -22,6 +22,8 @@ public class PirateMovement : Hazard, IDamageable
 
     public float rotationInput;
 
+    private FMOD.Studio.EventInstance movementSound;
+
     public Vector2 input;
 
     public float health = 15;
@@ -34,6 +36,8 @@ public class PirateMovement : Hazard, IDamageable
     void Start()
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
+        movementSound = FMODUnity.RuntimeManager.CreateInstance("event:/PirateEngine");
+
     }
 
     // Update is called once per frame
