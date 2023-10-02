@@ -107,17 +107,15 @@ public class CarriageManager : MonoBehaviour
         });
     }
 
-    public void TryCloseCarriage()
+    public bool TryCloseCarriage()
     {
         if(carriageItems.All(item => item.IsFitCorrectly))
         {
-            inventoryManager.CloseCarriage(this);
+            CloseCarriage();
             // SFX: play fit SFX
+            return true;
         }
-        else
-        {
-            // SFX: play not fit SFX
-        }
+        return false;
     }
 
     public void CloseCarriage()

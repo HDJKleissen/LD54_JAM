@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -16,6 +18,7 @@ public class InventoryManager : MonoBehaviour
     private CarriageItem draggingItem;
     [SerializeField] private float rotationSpeed = 5.0f;
 
+    bool moving =true;
     // Update is called once per frame
     void Update()
     {
@@ -73,6 +76,34 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    internal void SetTrainIsMoving(bool moving)
+    {
+        this.moving = moving;
+        if (moving) {
+            if (TrainCanBeClosed())
+            {
+                foreach(CarriageManager carriage in openCarriages)
+                {
+                    carriage.CloseCarriage();
+                }
+            }
+        }
+    }
+    
+    internal bool TrainCanBeClosed()
+    {
+        bool canClose = true;
+        foreach (CarriageManager carriage in openCarriages)
+        {
+            if(!carriage.carriageItems.All(item => item.IsFitCorrectly))
+            {
+                canClose = false;
+            }
+        }
+
+        return canClose;
+    }
+
     private void RotateDragging()
     {
         if (!isDragging)
@@ -124,11 +155,15 @@ public class InventoryManager : MonoBehaviour
 
     public void CloseCarriage(CarriageManager carriage)
     {
-        carriage.CloseCarriage();
+        carriage.TryCloseCarriage();
     }
 
     public void OpenCarriage(CarriageManager carriage)
     {
+        if (moving)
+        {
+            return;
+        }
         if (!carriage.gameObject.activeSelf)
         {
             if (openCarriages.Count >= maxOpenCarriages)

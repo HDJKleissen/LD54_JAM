@@ -29,10 +29,12 @@ public class CarriageItem : MonoBehaviour
     {
         if(carriageManager == null)
         {
+            sprite.sortingOrder = 0;
             sprite.color = Color.white;
         }
         else if (carriageManager)
         {
+            sprite.sortingOrder = 1;
             sprite.color = Color.white;
         }
 

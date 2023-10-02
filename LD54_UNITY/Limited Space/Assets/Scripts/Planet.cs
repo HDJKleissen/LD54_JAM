@@ -100,6 +100,7 @@ public class Planet : MonoBehaviour
             moneyAdded += requirement.Reward;
         }
 
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Delivery");
         mySequence.OnComplete(() => {
             int toDestroyItemAmount = totalToDestroy.Count;
 
@@ -118,7 +119,6 @@ public class Planet : MonoBehaviour
             }
             requirements.Clear();
 
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Delivery");
             FindObjectOfType<PlayerMoney>().ChangeMoney(moneyAdded);
             IsComplete = false;
             playedBark = false;

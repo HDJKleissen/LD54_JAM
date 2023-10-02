@@ -211,6 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631e7516deb3a97498ac5e2bf8bb31f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 15
+  sprenderer: {fileID: 8964228334858736788}
 --- !u!232 &8885926821121983711
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -322,6 +324,10 @@ PrefabInstance:
     - target: {fileID: 7075418659835247656, guid: 5281bc757a938d5458ef2e9d494b7a3f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987995904600260721, guid: 5281bc757a938d5458ef2e9d494b7a3f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

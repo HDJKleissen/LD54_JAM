@@ -29,7 +29,7 @@ public class PlayerMovement : Hazard, IDamageable
 
     float health = 100;
     float maxHealth = 100;
-
+    [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private PlayerGas gasTracker;
     [SerializeField] private Slider healthSlider;
     // Start is called before the first frame update
@@ -51,6 +51,9 @@ public class PlayerMovement : Hazard, IDamageable
         }
 
         Vector2 velocity = _rigidbody.velocity;
+
+        inventoryManager.SetTrainIsMoving(velocity.magnitude > 0.1f);
+
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         float rotationInput = input.x * velocity.magnitude * _rotateVelocityRatio;
 
@@ -83,48 +86,51 @@ public class PlayerMovement : Hazard, IDamageable
         rotationInput = input.x * velocity.magnitude * _rotateVelocityRatio;
         float moveSpeed = velocity.magnitude;
 
-        if (accelerationInput > 0)
+        if (inventoryManager.TrainCanBeClosed())
         {
-            if(previousInput.y == 0)
+            if (accelerationInput > 0)
             {
-                //SFX: Acceleration start (stop everything else)
-                movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                movementSound.start();
-            }
-            // Player is accelerating
-            moveSpeed += _accelerationSpeed * Time.deltaTime;
-        }
-        else if (accelerationInput < 0)
-        {
-            if (previousInput.y >= 0)
-            {
-                //SFX: Active brake start (stop everything else)
-                movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                if (velocity.magnitude >= 0.1f)
+                if (previousInput.y == 0)
                 {
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/Brake");
+                    //SFX: Acceleration start (stop everything else)
+                    movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    movementSound.start();
                 }
+                // Player is accelerating
+                moveSpeed += _accelerationSpeed * Time.deltaTime;
             }
-            // Player is actively braking
-            moveSpeed -= _activeBrakeSpeed * Time.deltaTime;
-        }
-        else
-        {
-            if (previousInput.y != 0)
+            else if (accelerationInput < 0)
             {
-                //SFX: Passive brake start (stop everything else)
-                movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                if (previousInput.y >= 0)
+                {
+                    //SFX: Active brake start (stop everything else)
+                    movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    if (velocity.magnitude >= 0.1f)
+                    {
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/Brake");
+                    }
+                }
+                // Player is actively braking
+                moveSpeed -= _activeBrakeSpeed * Time.deltaTime;
             }
-            // Player is letting vehicle passively brake
-            moveSpeed -= _defaultBrakeSpeed * Time.deltaTime;
+            else
+            {
+                if (previousInput.y != 0)
+                {
+                    //SFX: Passive brake start (stop everything else)
+                    movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                }
+                // Player is letting vehicle passively brake
+                moveSpeed -= _defaultBrakeSpeed * Time.deltaTime;
+            }
+
+            _rigidbody.rotation -= rotationInput * _rotateSpeed * Time.deltaTime;
+
+            moveSpeed = Mathf.Clamp(moveSpeed, 0, _maxMoveSpeed);
+
+            _rigidbody.velocity = transform.up * moveSpeed;
+            previousInput = input;
         }
-        
-        _rigidbody.rotation -= rotationInput * _rotateSpeed * Time.deltaTime;
-
-        moveSpeed = Mathf.Clamp(moveSpeed, 0, _maxMoveSpeed);
-
-        _rigidbody.velocity = transform.up * moveSpeed;
-        previousInput = input;
     }
 
     private void OnDestroy()
