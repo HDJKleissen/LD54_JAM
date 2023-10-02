@@ -23,7 +23,7 @@ public class PlayerMoney : MonoBehaviour
     public void ChangeMoney(int amount)
     {
         // unable to use money while animation
-        if(isSpending == true)
+        if (isSpending == true)
         {
             return;
         }
