@@ -20,18 +20,21 @@ public class PlayerMovement : Hazard, IDamageable
     [SerializeField] private float minSpeedWithOpenWagons = 0.4f;
     [SerializeField] private Rigidbody2D _rigidbody;
 
+    [SerializeField] GameObject explosionPrefab;
     public float rotationInput;
 
     public Vector2 input;
     private Vector2 previousInput;
 
     private FMOD.Studio.EventInstance movementSound;
-
+    bool exploded;
     float health = 100;
     float maxHealth = 100;
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private PlayerGas gasTracker;
     [SerializeField] private Slider healthSlider;
+
+    public bool isNearPlanet;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +80,23 @@ public class PlayerMovement : Hazard, IDamageable
         gasTracker.maxGas += amount;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // :')
+        if(collision.name.Contains("Planet"))
+        {
+            isNearPlanet = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // :')
+        if (collision.name.Contains("Planet"))
+        {
+            isNearPlanet = false;
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -264,8 +284,15 @@ public class PlayerMovement : Hazard, IDamageable
         health -= amount;
         if(health < 0)
         {
+            movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             FMODUnity.RuntimeManager.PlayOneShot("event:/Explosion");
             GetComponent<PlayerMovement>().enabled = false;
+            if (!exploded)
+            {
+                exploded = true;
+                Transform expl = Instantiate(explosionPrefab).transform;
+                expl.position = transform.position;
+            }
             // TODO: Open end screen
             Debug.LogWarning("Kaboom!");
         }

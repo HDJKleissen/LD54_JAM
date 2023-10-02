@@ -136,7 +136,7 @@ public class Container : Hazard, IDamageable
         health -= amount;
         if(health < 0)
         {
-            sprenderer.color = new Color(.2f, .2f, .2f);
+            sprenderer.color = new Color(.5f, .5f, .5f);
         }
     }
 

@@ -32,7 +32,6 @@ public class Planet : MonoBehaviour
 
         pr.Randomize(newRequirementItemPrefab, newRequirementItemSprite);
         requirements.Add(pr);
-        ShowObjectiveCanvas();
     }
 
     // Start is called before the first frame update
@@ -200,6 +199,7 @@ public class Planet : MonoBehaviour
         if (collision.CompareTag("Player") && requirements.Count > 0 && !playedBark)
         {
             playedBark = true;
+            ShowObjectiveCanvas();
             FMODUnity.RuntimeManager.PlayOneShot("event:/Quest Bark");
         }
     }
