@@ -5,7 +5,7 @@
 			<value>Truck Horn</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2184131a-0974-4712-b616-3f832799c89d}</destination>
@@ -80,7 +80,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{5203a8c0-58c4-41f8-bdbf-479a738b2930}">
 		<property name="volume">
-			<value>-19</value>
+			<value>-16.5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{2526b49c-7a70-4131-87ae-ff1b0c1a0e95}</destination>
@@ -129,7 +129,6 @@
 	<object class="MixerBusEffectChain" id="{2526b49c-7a70-4131-87ae-ff1b0c1a0e95}">
 		<relationship name="effects">
 			<destination>{5dd9e81c-2292-4620-a48e-34e9894d0ad8}</destination>
-			<destination>{61803c78-30e6-4c64-b71b-b93a3f86e6dd}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d77da013-9214-4c55-a3ff-b7d8cbc68ed9}" />
@@ -154,7 +153,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{1ba5f1ab-ac56-4c24-bd68-5ad4a5ec376d}" />
 	<object class="MixerBusFader" id="{5dd9e81c-2292-4620-a48e-34e9894d0ad8}" />
-	<object class="SpatialiserEffect" id="{61803c78-30e6-4c64-b71b-b93a3f86e6dd}" />
 	<object class="AutomationPoint" id="{46228050-0799-4492-8cfc-48077474eb1c}">
 		<property name="position">
 			<value>1.5</value>
