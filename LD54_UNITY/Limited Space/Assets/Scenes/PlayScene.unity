@@ -1273,7 +1273,6 @@ MonoBehaviour:
   <WorldItemsContainer>k__BackingField: {fileID: 296230544}
   openCarriages: []
   maxOpenCarriages: 2
-  rotationSpeed: 5
 --- !u!4 &698572146
 Transform:
   m_ObjectHideFlags: 0
@@ -9812,9 +9811,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1733945197}
     - target: {fileID: 5489135064391656089, guid: 6e458e8bc3c65ef4c881a0903f2a8896, type: 3}
+      propertyPath: maxGas
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5489135064391656089, guid: 6e458e8bc3c65ef4c881a0903f2a8896, type: 3}
+      propertyPath: gasAmount
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5489135064391656089, guid: 6e458e8bc3c65ef4c881a0903f2a8896, type: 3}
       propertyPath: gasSlider
       value: 
       objectReference: {fileID: 2110564447}
+    - target: {fileID: 5489135064391656089, guid: 6e458e8bc3c65ef4c881a0903f2a8896, type: 3}
+      propertyPath: useGasMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7116201645232587365, guid: 6e458e8bc3c65ef4c881a0903f2a8896, type: 3}
       propertyPath: _backContainer
       value: 

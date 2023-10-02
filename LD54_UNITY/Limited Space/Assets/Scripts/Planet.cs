@@ -201,6 +201,8 @@ public class Planet : MonoBehaviour
             playedBark = true;
             ShowObjectiveCanvas();
             FMODUnity.RuntimeManager.PlayOneShot("event:/Quest Bark");
+            Vector3 newScale = requirementsContainer.localScale;
+            requirementsContainer.DOScale(newScale * 1.5f, .8f).SetEase(Ease.OutBounce);
         }
     }
 
