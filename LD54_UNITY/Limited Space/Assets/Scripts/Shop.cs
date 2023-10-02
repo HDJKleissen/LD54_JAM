@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,68 +8,86 @@ public class Shop : MonoBehaviour
     PlayerMoney money;
     PlayerGas gas;
     PlayerMovement movement;
-    Collider2D playerCollider;
+    SetupTrain setupTrain;
     [SerializeField] Transform canvas;
-    Collider2D planetCollider;
-    private bool isShopOpen = false;
     Planet planet;
+    ItemSpawner planetItemSpawner;
+
+    Vector3 baseScale;
+
     // Start is called before the first frame update
     void Awake()
     {
         money = FindObjectOfType<PlayerMoney>();
         gas = FindObjectOfType<PlayerGas>();
         movement = FindObjectOfType<PlayerMovement>();
-        playerCollider = movement.GetComponentInChildren<Collider2D>();
+        setupTrain = FindObjectOfType<SetupTrain>();
         planet = transform.parent.GetComponentInChildren<Planet>();
-        planetCollider = planet.GetComponentInChildren<Collider2D>();
-        isShopOpen = true;
+        planetItemSpawner = planet.GetComponent<ItemSpawner>();
+        baseScale = canvas.localScale;
+        CloseShop();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        CheckOpenShop();
-    }
 
-    private void CheckOpenShop()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (planetCollider.bounds.Intersects(playerCollider.bounds))
+
+        if (collision.CompareTag("Player"))
         {
-            if (!isShopOpen)
-            {
-                OpenShop();
-            }
-        }
-        else
-        {
-            if (isShopOpen)
-            {
-                CloseShop();
-            }
+            OpenShop();
         }
     }
 
-    //TODO animate open/close
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            CloseShop();
+        }
+    }
+
     private void OpenShop()
     {
-        //TODO AUDIO open shop
-        isShopOpen = true;
+        //SFX: Open shop
         canvas.gameObject.SetActive(true);
+
+        // Create a new DOTween sequence
+        Sequence mySequence = DOTween.Sequence();
+
+        // Add a scale animation from 1 to 0 over a duration of 1 second
+        mySequence.Append(canvas.transform.DOScale(baseScale, 0.5f).SetEase(Ease.OutExpo));
+
+        // Play the sequence
+        mySequence.Play();
     }
 
     private void CloseShop()
     {
-        //TODO AUDIO close shop
-        isShopOpen = false;
-        canvas.gameObject.SetActive(false);
+        // Create a new DOTween sequence
+        Sequence mySequence = DOTween.Sequence();
+
+        // Add a scale animation from 1 to 0 over a duration of 1 second
+        mySequence.Append(canvas.transform.DOScale(new Vector3(baseScale.x, baseScale.y * 0.15f, baseScale.z), 0.5f).SetEase(Ease.OutExpo));
+
+        // Add an action to disable the object when the animation is finished
+        mySequence.OnComplete(() =>
+        {
+            canvas.gameObject.SetActive(false);
+        });
+
+        // Play the sequence
+        mySequence.Play();
+        //SFX: Close shop
     }
 
     public void BuyExtraWagon(ShopItem item)
     {
         if (Buy(item.price))
         {
-            //TODO Add extra wagon
+            //SFX: Wrench sound
             Debug.LogWarning("ADding Extra Wagon!");
+            setupTrain.AddContainer();
         }
     }
 
@@ -76,6 +95,7 @@ public class Shop : MonoBehaviour
     {
         if (Buy(item.price))
         {
+            //SFX: Wrench sound
             movement.IncreaseMaxMovementSpeed(item.amount);
             Debug.LogWarning("ADding Extra Speed!");
         }
@@ -85,6 +105,7 @@ public class Shop : MonoBehaviour
     {
         if (Buy(item.price))
         {
+            //SFX: Wrench sound
             movement.IncreaseBreakSpeed(item.amount);
             Debug.LogWarning("ADding Better Brakes!");
         }
@@ -94,7 +115,7 @@ public class Shop : MonoBehaviour
     {
         if (Buy(item.price))
         {
-            //TODO Fill Gas
+            //SFX: Fill Gas
             gas.AddGasPerPercentage(item.amount);
             Debug.LogWarning("Filling Gas!!");
         }
@@ -105,11 +126,11 @@ public class Shop : MonoBehaviour
         if (money.Money >= price && !money.isSpending)
         {
             money.ChangeMoney(-price);
-            //TODO succesful buy sound
+            //SFX: succesful buy sound
             return true;
         }
 
-        //TODO unsuccesful buy sound
+        //SFX: unsuccesful buy sound
         return false;
     }
 
@@ -117,7 +138,7 @@ public class Shop : MonoBehaviour
     {
         if (Buy(item.price))
         {
-            //TODO Spawn Items
+            planetItemSpawner.SpawnItems(1, item.carriageItem);
             Debug.LogWarning("Spawn Items!!");
         }
     }

@@ -118,6 +118,7 @@ public class Planet : MonoBehaviour
             requirements.Clear();
 
             FindObjectOfType<PlayerMoney>().ChangeMoney(moneyAdded);
+            IsComplete = false;
         });
     }
 
@@ -149,6 +150,11 @@ public class Planet : MonoBehaviour
                 complete = false;
             }
         }
+        
+        if(requirements.Count == 0)
+        {
+            complete = false;
+        }
 
         IsComplete = complete;
         return IsComplete;
@@ -162,7 +168,7 @@ public class Planet : MonoBehaviour
             requirement.CurrentlyHolding = 0;
             for(int i = 0; i < items.Count; i++)
             {
-                if (requirement.ItemType == items[i].Type && !usedIndices.Contains(i))
+                if (requirement.ItemType == items[i].Type && !usedIndices.Contains(i) && !items[i].BeingDragged)
                 {
                     // skip; possibly add them to the next requirement
                     if (requirement.CurrentlyHolding >= requirement.TotalRequired)
@@ -174,8 +180,7 @@ public class Planet : MonoBehaviour
                     requirement.CurrentlyHolding++;
                 }
             }
-
-            if(requirement.CurrentlyHolding >= requirement.TotalRequired)
+            if (requirement.CurrentlyHolding >= requirement.TotalRequired)
             {
                 requirement.Complete();
             }

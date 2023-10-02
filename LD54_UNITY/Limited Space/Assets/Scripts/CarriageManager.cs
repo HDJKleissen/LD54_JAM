@@ -112,11 +112,11 @@ public class CarriageManager : MonoBehaviour
         if(carriageItems.All(item => item.IsFitCorrectly))
         {
             inventoryManager.CloseCarriage(this);
-            // TODO AUDIO: play fit SFX
+            // SFX: play fit SFX
         }
         else
         {
-            // TODO AUDIO: play not fit SFX
+            // SFX: play not fit SFX
         }
     }
 

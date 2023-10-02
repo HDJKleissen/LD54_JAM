@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour
     private Vector3 offset;
     private bool isDragging = false;
     private Collider2D draggingCollider;
+    private CarriageItem draggingItem;
     [SerializeField] private float rotationSpeed = 5.0f;
 
     // Update is called once per frame
@@ -25,7 +26,7 @@ public class InventoryManager : MonoBehaviour
 
     private void DragAndDrop()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             // Cast a ray from the mouse position
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -34,6 +35,8 @@ public class InventoryManager : MonoBehaviour
             if (hit.collider != null)
             {
                 draggingCollider = hit.collider;
+                draggingItem = hit.collider.GetComponent<CarriageItem>();
+                draggingItem.BeingDragged = true;
                 offset = (Vector2)draggingCollider.transform.position - hit.point;
                 isDragging = true;
 
@@ -42,14 +45,19 @@ public class InventoryManager : MonoBehaviour
                 t.position = new Vector3(t.position.x, t.position.y, -1.0f);
             }
         }
-        else
+        else if(Input.GetMouseButtonUp(0))
         {
             if (draggingCollider != null)
             {
+                if(draggingItem != null)
+                {
+                    draggingItem.BeingDragged = false;
+                    draggingItem = null;
+                }
+
                 // revert z-pos
                 Transform t = draggingCollider.gameObject.transform;
-                t.position = new Vector3(t.position.x, t.position.y, -0.01f);
-
+                t.position = new Vector3(t.position.x, t.position.y, 0);
                 isDragging = false;
                 draggingCollider = null;
             }
@@ -77,11 +85,11 @@ public class InventoryManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            draggingCollider.gameObject.transform.Rotate(new Vector3(0, 0, rotationSpeed) * Time.unscaledDeltaTime);
+            draggingCollider.gameObject.transform.Rotate(new Vector3(0, 0, rotationSpeed) * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            draggingCollider.gameObject.transform.Rotate(new Vector3(0, 0, -rotationSpeed) * Time.unscaledDeltaTime);
+            draggingCollider.gameObject.transform.Rotate(new Vector3(0, 0, -rotationSpeed) * Time.deltaTime);
         }
     }
 

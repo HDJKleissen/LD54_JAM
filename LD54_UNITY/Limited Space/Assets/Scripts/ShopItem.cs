@@ -51,9 +51,4 @@ public class ShopItem : MonoBehaviour
     {
         
     }
-
-    public void BuyExtraCarriage()
-    {
-
-    }
 }

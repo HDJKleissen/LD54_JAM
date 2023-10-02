@@ -15,6 +15,7 @@ public class CarriageItem : MonoBehaviour
 
     bool isClippingOutside = false;
 
+    public bool BeingDragged = false;
 
     public ItemType Type;
 
@@ -32,7 +33,7 @@ public class CarriageItem : MonoBehaviour
         }
         else if (carriageManager)
         {
-            sprite.color = Color.cyan;
+            sprite.color = Color.white;
         }
 
         if(carriageManager && !IsFitCorrectly)
@@ -44,7 +45,7 @@ public class CarriageItem : MonoBehaviour
     // flip between inside and outside of the carriage
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!Input.GetMouseButton(0))
+        if (!BeingDragged)
         {
             return;
         }

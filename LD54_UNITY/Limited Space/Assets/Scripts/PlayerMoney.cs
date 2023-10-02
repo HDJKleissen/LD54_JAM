@@ -38,7 +38,7 @@ public class PlayerMoney : MonoBehaviour
         }
 
         isSpending = true;
-        DOTween.To(() => Money, x => Money = x, Money + amount, 1f)
+        DOTween.To(() => Money, x => Money = x, Money + amount, .2f)
             .OnUpdate(() => {
 
             })

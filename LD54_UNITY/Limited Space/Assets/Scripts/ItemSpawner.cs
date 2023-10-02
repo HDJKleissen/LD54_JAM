@@ -23,7 +23,7 @@ public class ItemSpawner : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawnItems(initialAmount));
+        SpawnItems(initialAmount);
         timer = 0;
     }
 
@@ -34,11 +34,21 @@ public class ItemSpawner : MonoBehaviour
         if(timer > timeBetweenSpawn)
         {
             timer = 0;
-            StartCoroutine(SpawnItems(timedSpawnAmount));
+            SpawnItems(timedSpawnAmount);
         }
     }
+    
+    public void SpawnItems(int amount)
+    {
+        SpawnItems(amount, itemToSpawn);
+    }
 
-    public IEnumerator SpawnItems(int amount)
+    public void SpawnItems(int amount, CarriageItem carriageItemPrefab)
+    {
+        StartCoroutine(SpawnItemsCR(amount, carriageItemPrefab));
+    }
+
+    public IEnumerator SpawnItemsCR(int amount, CarriageItem carriageItemPrefab)
     {
         for(int i = 0; i < amount; i++)
         {
@@ -46,13 +56,12 @@ public class ItemSpawner : MonoBehaviour
             {
                 Sequence s = DOTween.Sequence();
                 Vector3 randomOffset = new Vector3(Random.Range(-randomOffSetRange, randomOffSetRange), Random.Range(-randomOffSetRange, randomOffSetRange), Random.Range(-randomOffSetRange, randomOffSetRange));
-                CarriageItem item = Instantiate(itemToSpawn, planet.ItemContainer.position, Quaternion.Euler(0, 0, 0));
+                CarriageItem item = Instantiate(carriageItemPrefab, planet.ItemContainer.position, Quaternion.Euler(0, 0, 0));
                 s.Append(item.transform.DOMove(planet.ItemContainer.position + randomOffset, Random.Range(0.1f, 0.3f)).SetEase(Ease.InQuad));
                 s.Join(item.transform.DORotate(new Vector3(0, 0, Random.Range(0, 360)), Random.Range(0.5f, 2f)).SetEase(Ease.OutSine));
                 item.transform.SetParent(planet.ItemContainer, true);
             }
             yield return null;
         }
-        yield return null;
     }
 }
