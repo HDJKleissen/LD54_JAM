@@ -6,7 +6,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class PlanetInstantiater : MonoBehaviour
 {
-    public List<Transform> planets = new List<Transform>();
+    public List<Planet> planets = new List<Planet>();
 
     [SerializeField] bool RUNCHANGES = false;
     // Start is called before the first frame update
@@ -27,12 +27,15 @@ public class PlanetInstantiater : MonoBehaviour
 
     void ChangeWorlds()
     {
-        planets = GetComponentsInChildren<Transform>().ToList();
+        foreach(Transform t in transform)
+        {
+            planets.Add(transform.GetComponentInChildren<Planet>());
+        }
 
-        foreach(Transform p in planets)
+        foreach(Planet p in planets)
         {
             float scale = Random.Range(0.3f, 2.0f);
-            p.localScale = new Vector3(scale, scale, scale);
+            p.transform.localScale = new Vector3(scale, scale, scale);
         }
     }
 }
