@@ -531,10 +531,6 @@ PrefabInstance:
     - target: {fileID: 7428333294489296493, guid: 138d92e8522049542b08737f450fa1db, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1543421396}
-    - target: {fileID: 7428333294489296493, guid: 138d92e8522049542b08737f450fa1db, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
       objectReference: {fileID: 1543421395}
     - target: {fileID: 7428333294489296493, guid: 138d92e8522049542b08737f450fa1db, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -545,8 +541,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7428333294489296493, guid: 138d92e8522049542b08737f450fa1db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenBaseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428333294489296493, guid: 138d92e8522049542b08737f450fa1db, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PlayBackSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428333294489296493, guid: 138d92e8522049542b08737f450fa1db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuButtons, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7428333294489296493, guid: 138d92e8522049542b08737f450fa1db, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
