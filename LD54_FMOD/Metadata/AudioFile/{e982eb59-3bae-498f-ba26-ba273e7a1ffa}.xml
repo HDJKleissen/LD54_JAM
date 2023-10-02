@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e982eb59-3bae-498f-ba26-ba273e7a1ffa}">
+		<property name="assetPath">
+			<value>Yeehaw.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.96875</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{762f74b0-becb-4572-b062-7f0ff28a59bd}</destination>
+		</relationship>
+	</object>
+</objects>

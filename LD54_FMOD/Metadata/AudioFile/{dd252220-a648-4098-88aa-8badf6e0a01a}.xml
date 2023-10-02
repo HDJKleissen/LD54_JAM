@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{dd252220-a648-4098-88aa-8badf6e0a01a}">
+		<property name="assetPath">
+			<value>Lapsteel fill.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>5.53125</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{762f74b0-becb-4572-b062-7f0ff28a59bd}</destination>
+		</relationship>
+	</object>
+</objects>
