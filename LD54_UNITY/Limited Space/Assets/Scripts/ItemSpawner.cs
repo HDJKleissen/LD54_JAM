@@ -7,6 +7,7 @@ public class ItemSpawner : MonoBehaviour
 {
     private Planet planet;
     public CarriageItem itemToSpawn;
+    public ItemType itemToSpawnType;
     [SerializeField] float randomOffSetRange = 3.0f;
     [SerializeField] int initialAmount = 5;
     [SerializeField] int maxAmount = 15;

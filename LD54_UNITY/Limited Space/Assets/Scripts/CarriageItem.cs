@@ -145,7 +145,7 @@ public class CarriageItem : MonoBehaviour
 public enum ItemType
 {
     Cactus,
-    Box,
+    Crate,
     Wood,
     Briefcase,
     Tumbleweed,

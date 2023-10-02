@@ -30,17 +30,20 @@ public class QuestManager : MonoBehaviour
     void GiveRandomPlanetARequirement()
     {
         Planet planet = planets[UnityEngine.Random.Range(0, planets.Count)];
-        ItemType spawningItem = planet.GetComponent<ItemSpawner>().itemToSpawn.Type;
+        ItemType spawningItem = planet.GetComponent<ItemSpawner>().itemToSpawnType;
 
         Debug.Log("Wahoo! new requirement");
         if(planet.requirements.Count == 0)
         {
             List<int> possibleTypes = new List<int>();
             int itemTypeAmount = Enum.GetNames(typeof(ItemType)).Length;
-            for(int i = 0; i < itemTypeAmount; i++)
+
+
+            for (int i = 0; i < itemTypeAmount; i++)
             {
                 if((ItemType)i != spawningItem)
                 {
+                    Debug.Log(planet.transform.position + " can spawn " + ((ItemType)i) + " :)");
                     possibleTypes.Add(i);
                 } 
             }
@@ -54,7 +57,7 @@ public class QuestManager : MonoBehaviour
                 case ItemType.Cactus:
                     newRequiredItemSprite = cactusSprite;
                     break;
-                case ItemType.Box:
+                case ItemType.Crate:
                     newRequiredItemSprite = boxSprite;
                     break;
                 case ItemType.Wood:

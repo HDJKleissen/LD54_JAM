@@ -70,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
             if(previousInput.y == 0)
             {
                 //SFX: Acceleration start (stop everything else)
+                movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 movementSound.start();
             }
             // Player is accelerating

@@ -10,6 +10,7 @@ public class SetupTrain : MonoBehaviour
     [SerializeField] private GameObject _containerPrefab;
     [SerializeField] private GameObject _connectorPrefab;
     [SerializeField] private float yOffset;
+    [SerializeField] bool allowContainerSpawn;
 
     // Start is called before the first frame update
     void Start()
@@ -26,21 +27,22 @@ public class SetupTrain : MonoBehaviour
     
     void OnValidate()
     {
-        if (_containerAmount != GetComponentsInChildren<Container>().Length)
+        if (allowContainerSpawn)
         {
             SetContainers(_containerAmount);
+            allowContainerSpawn = false;
         }
     }
 
     public void SetContainers(int amount) // todo change to use container data
     {
-        foreach (Transform child in transform.GetComponentsInChildren<Transform>())
-        {
-            if (child != transform && (child.GetComponent<Container>() != null || child.GetComponent<ContainerConnector>() != null))
-            {
-                DestroyImmediate(child.gameObject);
-            }
-        }
+        //foreach (Transform child in transform.GetComponentsInChildren<Transform>())
+        //{
+        //    if (child != transform && (child.GetComponent<Container>() != null || child.GetComponent<ContainerConnector>() != null))
+        //    {
+        //        DestroyImmediate(child.gameObject);
+        //    }
+        //}
 
         Rigidbody2D previousContainer = _trainCabin;
         for(int i = 0; i < amount; i++)
