@@ -6669,6 +6669,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631e7516deb3a97498ac5e2bf8bb31f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 15
+  sprenderer: {fileID: 0}
 --- !u!232 &4194970354334756102
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -8108,6 +8110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631e7516deb3a97498ac5e2bf8bb31f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 15
+  sprenderer: {fileID: 0}
 --- !u!232 &2055172303776263630
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -14004,6 +14008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631e7516deb3a97498ac5e2bf8bb31f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 15
+  sprenderer: {fileID: 0}
 --- !u!232 &7859295599488943216
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -18428,10 +18434,13 @@ MonoBehaviour:
   _idlingGasLoss: 0.03
   _rotateSpeed: 15
   _rotateVelocityRatio: 1
+  minSpeedWithOpenWagons: 4
   _rigidbody: {fileID: 7096268238419541041}
   rotationInput: 0
   input: {x: 0, y: 0}
+  inventoryManager: {fileID: 0}
   gasTracker: {fileID: 5489135064391656089}
+  healthSlider: {fileID: 0}
 --- !u!50 &7096268238419541041
 Rigidbody2D:
   serializedVersion: 4
@@ -18739,6 +18748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631e7516deb3a97498ac5e2bf8bb31f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 15
+  sprenderer: {fileID: 0}
 --- !u!232 &2204299709899510475
 DistanceJoint2D:
   m_ObjectHideFlags: 0

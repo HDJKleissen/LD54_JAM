@@ -17,7 +17,7 @@ public class PlayerMovement : Hazard, IDamageable
 
     [SerializeField] private float _rotateSpeed;
     [SerializeField] private float _rotateVelocityRatio;
-
+    [SerializeField] private float minSpeedWithOpenWagons = 0.4f;
     [SerializeField] private Rigidbody2D _rigidbody;
 
     public float rotationInput;
@@ -52,7 +52,7 @@ public class PlayerMovement : Hazard, IDamageable
 
         Vector2 velocity = _rigidbody.velocity;
 
-        inventoryManager.SetTrainIsMoving(velocity.magnitude > 0.1f);
+        inventoryManager.SetTrainIsMoving(velocity.magnitude > minSpeedWithOpenWagons);
 
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         float rotationInput = input.x * velocity.magnitude * _rotateVelocityRatio;
