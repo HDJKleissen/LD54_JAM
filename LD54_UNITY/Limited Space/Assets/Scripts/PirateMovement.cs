@@ -25,13 +25,18 @@ public class PirateMovement : Hazard, IDamageable
     private FMOD.Studio.EventInstance movementSound;
 
     public Vector2 input;
+    private Vector2 previousInput;
 
     public float health = 15;
     [SerializeField] float chaseTime = 0;
     [SerializeField] float destroyTime = 0;
     [SerializeField] float timer = 0;
+    [SerializeField] GameObject explosionPrefab;
 
     [SerializeField] private PlayerMovement playerMovement;
+
+    bool exploded;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,14 +51,15 @@ public class PirateMovement : Hazard, IDamageable
         timer += Time.deltaTime;
 
         float dotProd = Vector2.Dot((playerMovement.transform.position - transform.position).normalized, transform.right); 
-        if (timer > chaseTime)
+        if (timer > chaseTime || playerMovement.isNearPlanet)
         {
             dotProd = -dotProd;
 
-            if(timer > destroyTime && !_spriteRenderer.isVisible)
-            {
-                Destroy(gameObject);
-            }
+        }
+        if ((timer > destroyTime || playerMovement.isNearPlanet) && !_spriteRenderer.isVisible)
+        {
+            movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            Destroy(gameObject);
         }
 
         input = new Vector2(dotProd, 1);
@@ -72,14 +78,37 @@ public class PirateMovement : Hazard, IDamageable
 
             if (accelerationInput > 0)
             {
+                if (previousInput.y == 0)
+                {
+                    //SFX: Acceleration start (stop everything else)
+                    movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    movementSound.start();
+                }
+                // Player is accelerating
                 moveSpeed += _accelerationSpeed * Time.deltaTime;
             }
             else if (accelerationInput < 0)
             {
+                if (previousInput.y >= 0)
+                {
+                    //SFX: Active brake start (stop everything else)
+                    movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    if (velocity.magnitude >= 0.1f)
+                    {
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/Brake");
+                    }
+                }
+                // Player is actively braking
                 moveSpeed -= _activeBrakeSpeed * Time.deltaTime;
             }
             else
             {
+                if (previousInput.y != 0)
+                {
+                    //SFX: Passive brake start (stop everything else)
+                    movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                }
+                // Player is letting vehicle passively brake
                 moveSpeed -= _defaultBrakeSpeed * Time.deltaTime;
             }
 
@@ -88,6 +117,7 @@ public class PirateMovement : Hazard, IDamageable
             moveSpeed = Mathf.Clamp(moveSpeed, 0, _maxMoveSpeed);
 
             _rigidbody.velocity = transform.up * moveSpeed;
+            previousInput = input;
         }
     }
 
@@ -212,6 +242,14 @@ public class PirateMovement : Hazard, IDamageable
         health -= amount;
         if(health < 0)
         {
+            movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Explosion", gameObject);
+            if (!exploded)
+            {
+                exploded = true;
+                Transform expl = Instantiate(explosionPrefab).transform;
+                expl.position = transform.position;
+            }
             _spriteRenderer.color = new Color(.5f, .5f, .5f);
         }
     }

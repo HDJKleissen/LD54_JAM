@@ -5058,7 +5058,7 @@ MonoBehaviour:
   _accelerationSpeed: 5
   _defaultBrakeSpeed: 1
   _activeBrakeSpeed: 4
-  _maxMoveSpeed: 10
+  _maxMoveSpeed: 12
   _rotateSpeed: 12
   _rotateVelocityRatio: 1
   _rigidbody: {fileID: 800803063486978769}
@@ -5069,6 +5069,7 @@ MonoBehaviour:
   chaseTime: 12
   destroyTime: 22
   timer: 0
+  explosionPrefab: {fileID: 4445883778460991366, guid: f86f53dfe12f24c4b957ae887e4ed6fd, type: 3}
   playerMovement: {fileID: 0}
 --- !u!1 &4439755242254327599
 GameObject:

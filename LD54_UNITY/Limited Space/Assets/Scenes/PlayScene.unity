@@ -9627,6 +9627,9 @@ MonoBehaviour:
   minTimeBetweenEvents: 0
   maxTimeBetweenEvents: 0
   player: {fileID: 8234379646193504224}
+  piratePrefab: {fileID: 0}
+  tumbleWeedPrefab: {fileID: 0}
+  asteroidPrefab: {fileID: 0}
 --- !u!4 &1612536885
 Transform:
   m_ObjectHideFlags: 0

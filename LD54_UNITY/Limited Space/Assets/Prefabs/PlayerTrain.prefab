@@ -18436,11 +18436,13 @@ MonoBehaviour:
   _rotateVelocityRatio: 1
   minSpeedWithOpenWagons: 4
   _rigidbody: {fileID: 7096268238419541041}
+  explosionPrefab: {fileID: 4445883778460991366, guid: f86f53dfe12f24c4b957ae887e4ed6fd, type: 3}
   rotationInput: 0
   input: {x: 0, y: 0}
   inventoryManager: {fileID: 0}
   gasTracker: {fileID: 5489135064391656089}
   healthSlider: {fileID: 0}
+  isNearPlanet: 0
 --- !u!50 &7096268238419541041
 Rigidbody2D:
   serializedVersion: 4
