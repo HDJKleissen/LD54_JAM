@@ -64,6 +64,10 @@ public class CarriageItem : MonoBehaviour
             isClippingOutside = true;
             if (carriageManager && carriageManager.carriageItems.Contains(this))
             {
+                if (Type == ItemType.Tumbleweed)
+                {
+                    GetComponent<Rigidbody2D>().isKinematic = false;
+                }
                 carriageManager.RemoveCarriageItem(this);
             }
         }
@@ -74,6 +78,12 @@ public class CarriageItem : MonoBehaviour
             {
                 if (!isClippingOutside)
                 {
+                    if(Type == ItemType.Tumbleweed)
+                    {
+                        Rigidbody2D itemRB = GetComponent<Rigidbody2D>();
+                        itemRB.isKinematic = true;
+                        itemRB.velocity = Vector2.zero;
+                    }
                     collision.GetComponent<CarriageManager>().AddCarriageItem(this);
                     FMODUnity.RuntimeManager.PlayOneShot("event:/Drop");
                 }

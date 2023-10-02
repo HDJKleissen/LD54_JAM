@@ -214,6 +214,12 @@ public class Planet : MonoBehaviour
             {
                 if (!items.Contains(item))
                 {
+                    if (item.Type == ItemType.Tumbleweed)
+                    {
+                        Rigidbody2D itemRB = item.GetComponent<Rigidbody2D>();
+                        itemRB.isKinematic = true;
+                        itemRB.velocity = Vector2.zero;
+                    }
                     items.Add(item);
                 }
             }
@@ -237,6 +243,10 @@ public class Planet : MonoBehaviour
             {
                 if (items.Contains(item))
                 {
+                    if (item.Type == ItemType.Tumbleweed)
+                    {
+                        item.GetComponent<Rigidbody2D>().isKinematic = false;
+                    }
                     items.Remove(item);
                 }
             }
