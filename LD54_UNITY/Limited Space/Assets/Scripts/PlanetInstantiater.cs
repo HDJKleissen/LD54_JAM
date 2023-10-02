@@ -16,7 +16,8 @@ public class PlanetInstantiater : MonoBehaviour
     [SerializeField] float minScale = 0.3f;
     [SerializeField] float maxScale = 2;
 
-    [SerializeField] float chanceForStore = 10.0f;
+    [SerializeField] float chanceForStore = 0.2f;
+    [SerializeField] float chanceForItemSpawner = 0.6f;
 
     public List<Planet> planets = new List<Planet>();
     // Start is called before the first frame update
@@ -75,6 +76,15 @@ public class PlanetInstantiater : MonoBehaviour
 
                 Vector2 shopOffsets = new Vector3(-4, 4) * p.transform.parent.localScale.x;
                 shopTransform.localPosition = new Vector3(shopOffsets.GetRandomValueInRange(), shopOffsets.GetRandomValueInRange(), 0);
+            }
+
+            if (UnityEngine.Random.Range(0.0f, 1.0f) < chanceForItemSpawner)
+            {
+                p.GetComponent<ItemSpawner>().enabled = true;
+            }
+            else
+            {
+                p.GetComponent<ItemSpawner>().enabled = false;
             }
         }
     }
@@ -155,12 +165,6 @@ public class PlanetInstantiater : MonoBehaviour
             {
                 activeList.RemoveAt(randomIndex);
             }
-        }
-
-        // Now, 'points' contains the generated Vector2 points.
-        foreach (var point in points)
-        {
-            Debug.Log("Point: " + point);
         }
 
         return points;
