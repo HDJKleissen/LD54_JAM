@@ -16,13 +16,21 @@ public class SetupTrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        previousContainer = _trainCabin;
+        containers = new List<Container>(GetComponentsInChildren<Container>());
+        if (containers.Count == 0)
+        {
+            previousContainer = _trainCabin;
+        }
+        else
+        {
+            previousContainer = containers[containers.Count - 1].GetComponent<Rigidbody2D>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     

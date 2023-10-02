@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 3850431511092707127}
   - component: {fileID: 5220384436819437394}
   - component: {fileID: 4998997982471275185}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,8 +472,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToSpawn: {fileID: 1156363168096691267, guid: 022832fa18159034b9908e9aa129e62f, type: 3}
+  itemToSpawnType: 0
   randomOffSetRange: 5
   initialAmount: 5
+  maxAmount: 15
   timedSpawnAmount: 1
   timeBetweenSpawn: 5
 --- !u!50 &4998997982471275185
