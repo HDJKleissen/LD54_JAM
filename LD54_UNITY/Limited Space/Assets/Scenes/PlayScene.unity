@@ -14480,6 +14480,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid
       objectReference: {fileID: 0}
+    - target: {fileID: 5815323444186241249, guid: 87047785ae30941429d6d9850465dc32, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879626973507967412, guid: 87047785ae30941429d6d9850465dc32, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8889916142176931735, guid: 87047785ae30941429d6d9850465dc32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.7
@@ -14854,6 +14862,10 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 407616326}
+    - target: {fileID: 8904944356439827832, guid: 6e458e8bc3c65ef4c881a0903f2a8896, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 698572145}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3880868820971743169, guid: 6e458e8bc3c65ef4c881a0903f2a8896, type: 3}

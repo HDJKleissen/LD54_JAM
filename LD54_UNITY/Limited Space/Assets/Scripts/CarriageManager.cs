@@ -107,15 +107,13 @@ public class CarriageManager : MonoBehaviour
         });
     }
 
-    public bool TryCloseCarriage()
+    public void TryCloseCarriage()
     {
         if(carriageItems.All(item => item.IsFitCorrectly))
         {
             CloseCarriage();
             // SFX: play fit SFX
-            return true;
         }
-        return false;
     }
 
     public void CloseCarriage()

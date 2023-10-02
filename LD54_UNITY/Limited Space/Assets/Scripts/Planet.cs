@@ -101,6 +101,7 @@ public class Planet : MonoBehaviour
         }
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/Delivery");
+
         mySequence.OnComplete(() => {
             int toDestroyItemAmount = totalToDestroy.Count;
 

@@ -153,10 +153,6 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void CloseCarriage(CarriageManager carriage)
-    {
-        carriage.TryCloseCarriage();
-    }
 
     public void OpenCarriage(CarriageManager carriage)
     {
