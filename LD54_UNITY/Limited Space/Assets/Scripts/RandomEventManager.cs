@@ -61,15 +61,17 @@ public class RandomEventManager : MonoBehaviour
         {
             int spawnType = Random.Range(1, possibleSpawnTypes + 1);
 
-            float rng = 1;// Random.Range(0, 1f);
-            Vector3 dir = rng < 0.33f ? player.transform.right : rng < 0.66f ? -player.transform.right : player.transform.forward;
+            float rng = Random.Range(0, 1f);
+            Vector3 dir = rng < 0.33f ? player.transform.right : rng < 0.66f ? -player.transform.right : player.transform.up;
+
+            Debug.Log(dir);
             switch (spawnType)
             {
                 case 1:
                     for (int i = 0; i < playerDistance / 50; i++)
                     {
                         Transform tumb = Instantiate(tumbleWeedPrefab).transform;
-                        tumb.position = player.transform.position + player.transform.forward * 10 +
+                        tumb.position = player.transform.position + player.transform.up * 10 +
                             dir * distanceToOffscreen
                             + new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), 0).normalized * tumbSpawnRadius;
                         tumb.GetComponent<Rigidbody2D>().velocity = (player.transform.position - tumb.position).normalized * Random.Range(tumbMinVel, tumbMaxVel);
@@ -79,7 +81,7 @@ public class RandomEventManager : MonoBehaviour
                     for (int i = 0; i < playerDistance / 100; i++)
                     {
                         Transform ast = Instantiate(asteroidPrefab).transform;
-                        ast.position = player.transform.position + player.transform.forward * 10 +
+                        ast.position = player.transform.position + player.transform.up * 10 +
                             dir * distanceToOffscreen
                             + new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), 0).normalized * astSpawnRadius;
                         ast.GetComponent<Rigidbody2D>().velocity = (player.transform.position - ast.position).normalized * Random.Range(astMinVel, astMaxVel);
@@ -89,7 +91,7 @@ public class RandomEventManager : MonoBehaviour
                     for (int i = 0; i < playerDistance / 200; i++)
                     {
                         Transform pirate = Instantiate(piratePrefab).transform;
-                        pirate.position = player.transform.position + player.transform.forward * 10 +
+                        pirate.position = player.transform.position + player.transform.up * 10 +
                             dir * distanceToOffscreen
                             + new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), 0).normalized * pirateSpawnRadius;
                     }
