@@ -244,9 +244,9 @@ public class PirateMovement : Hazard, IDamageable
         if(health < 0)
         {
             movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Explosion", gameObject);
             if (!exploded)
             {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Explosion", gameObject);
                 exploded = true;
                 Transform expl = Instantiate(explosionPrefab).transform;
                 expl.position = transform.position;

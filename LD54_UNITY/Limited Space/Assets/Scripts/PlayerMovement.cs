@@ -28,7 +28,7 @@ public class PlayerMovement : Hazard, IDamageable
 
     private FMOD.Studio.EventInstance movementSound;
     bool exploded;
-    float health = 100;
+    public float health = 100;
     float maxHealth = 100;
     [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private PlayerGas gasTracker;
@@ -285,16 +285,16 @@ public class PlayerMovement : Hazard, IDamageable
         if(health < 0)
         {
             movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Explosion");
             GetComponent<PlayerMovement>().enabled = false;
             if (!exploded)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Explosion");
                 exploded = true;
                 Transform expl = Instantiate(explosionPrefab).transform;
                 expl.position = transform.position;
+                // TODO: Open end screen
+                Debug.LogWarning("Kaboom!");
             }
-            // TODO: Open end screen
-            Debug.LogWarning("Kaboom!");
         }
     }
 }

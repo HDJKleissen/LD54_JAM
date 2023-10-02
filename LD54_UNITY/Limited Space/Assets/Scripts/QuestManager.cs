@@ -32,7 +32,6 @@ public class QuestManager : MonoBehaviour
         Planet planet = planets[UnityEngine.Random.Range(0, planets.Count)];
         ItemType spawningItem = planet.GetComponent<ItemSpawner>().itemToSpawnType;
 
-        Debug.Log("Wahoo! new requirement");
         if(planet.requirements.Count == 0)
         {
             List<int> possibleTypes = new List<int>();
@@ -43,12 +42,10 @@ public class QuestManager : MonoBehaviour
             {
                 if((ItemType)i != spawningItem)
                 {
-                    Debug.Log(planet.transform.position + " can spawn " + ((ItemType)i) + " :)");
                     possibleTypes.Add(i);
                 } 
             }
 
-            GameObject newRequiredItemPrefab = null;
             Sprite newRequiredItemSprite = null;
             ItemType chosenType = (ItemType)possibleTypes[UnityEngine.Random.Range(0, possibleTypes.Count)];
 

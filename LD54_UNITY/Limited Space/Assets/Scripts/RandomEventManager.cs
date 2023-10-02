@@ -10,21 +10,30 @@ public class RandomEventManager : MonoBehaviour
     [SerializeField] GameObject piratePrefab, tumbleWeedPrefab, asteroidPrefab;
     float nextEventTime;
     float timer;
+    [SerializeField] float playerDistance;
 
+    [SerializeField] float distanceToOffscreen;
+    [SerializeField] float tumbSpawnRadius;
+    [SerializeField] float astSpawnRadius;
+    [SerializeField] float pirateSpawnRadius;
+    [SerializeField] float tumbMinVel;
+    [SerializeField] float tumbMaxVel;
+    [SerializeField] float astMinVel;
+    [SerializeField] float astMaxVel;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > nextEventTime)
+        if (timer > nextEventTime)
         {
             SetNextTimer();
-            if(!player.isNearPlanet)
+            if (!player.isNearPlanet && player.health > 0)
             {
                 SpawnEvent();
             }
@@ -34,16 +43,16 @@ public class RandomEventManager : MonoBehaviour
     void SpawnEvent()
     {
         int possibleSpawnTypes = 0;
-        float distanceFromCenter = Vector2.Distance(Vector2.zero, player.transform.position);
-        if (distanceFromCenter > 50)
+        playerDistance = Vector2.Distance(Vector2.zero, player.transform.position);
+        if (playerDistance > 50)
         {
             possibleSpawnTypes = 1;
         }
-        else if (distanceFromCenter > 300)
+        if (playerDistance > 150)
         {
             possibleSpawnTypes = 2;
         }
-        else if (distanceFromCenter > 600)
+        if (playerDistance > 300)
         {
             possibleSpawnTypes = 3;
         }
@@ -51,15 +60,47 @@ public class RandomEventManager : MonoBehaviour
         if (possibleSpawnTypes > 0)
         {
             int spawnType = Random.Range(1, possibleSpawnTypes + 1);
+
+            float rng = 1;// Random.Range(0, 1f);
+            Vector3 dir = rng < 0.33f ? player.transform.right : rng < 0.66f ? -player.transform.right : player.transform.forward;
             switch (spawnType)
             {
-
+                case 1:
+                    for (int i = 0; i < playerDistance / 50; i++)
+                    {
+                        Transform tumb = Instantiate(tumbleWeedPrefab).transform;
+                        tumb.position = player.transform.position + player.transform.forward * 10 +
+                            dir * distanceToOffscreen
+                            + new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), 0).normalized * tumbSpawnRadius;
+                        tumb.GetComponent<Rigidbody2D>().velocity = (player.transform.position - tumb.position).normalized * Random.Range(tumbMinVel, tumbMaxVel);
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < playerDistance / 100; i++)
+                    {
+                        Transform ast = Instantiate(asteroidPrefab).transform;
+                        ast.position = player.transform.position + player.transform.forward * 10 +
+                            dir * distanceToOffscreen
+                            + new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), 0).normalized * astSpawnRadius;
+                        ast.GetComponent<Rigidbody2D>().velocity = (player.transform.position - ast.position).normalized * Random.Range(astMinVel, astMaxVel);
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < playerDistance / 200; i++)
+                    {
+                        Transform pirate = Instantiate(piratePrefab).transform;
+                        pirate.position = player.transform.position + player.transform.forward * 10 +
+                            dir * distanceToOffscreen
+                            + new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), 0).normalized * pirateSpawnRadius;
+                    }
+                    break;
             }
         }
     }
 
     void SetNextTimer()
     {
+        timer = 0;
         nextEventTime = Random.Range(minTimeBetweenEvents, maxTimeBetweenEvents);
     }
 }
