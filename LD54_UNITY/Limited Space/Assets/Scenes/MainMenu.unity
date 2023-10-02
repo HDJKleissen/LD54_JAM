@@ -508,22 +508,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionsMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 1753701414001550002, guid: 138d92e8522049542b08737f450fa1db, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5712071885109002061, guid: 138d92e8522049542b08737f450fa1db, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6076919412004499408, guid: 138d92e8522049542b08737f450fa1db, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7171072436054591545, guid: 138d92e8522049542b08737f450fa1db, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7428333294489296493, guid: 138d92e8522049542b08737f450fa1db, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1029,6 +1013,7 @@ GameObject:
   - component: {fileID: 1343162540}
   - component: {fileID: 1343162542}
   - component: {fileID: 1343162541}
+  - component: {fileID: 1343162543}
   m_Layer: 5
   m_Name: Truck
   m_TagString: Untagged
@@ -1093,6 +1078,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343162539}
   m_CullTransparentMesh: 1
+--- !u!114 &1343162543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343162539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c27a44384db704796b1d361bf65ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRandomRange: 0.1
+  maxRotationSpeed: 1
 --- !u!1 &1462947736 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 137738731087076485, guid: 138d92e8522049542b08737f450fa1db, type: 3}
