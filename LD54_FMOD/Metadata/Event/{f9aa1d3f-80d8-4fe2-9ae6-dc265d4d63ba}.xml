@@ -5,7 +5,7 @@
 			<value>Tumbleweed Impact</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2184131a-0974-4712-b616-3f832799c89d}</destination>
@@ -216,6 +216,7 @@
 	<object class="MixerBusEffectChain" id="{3626715b-7288-4e45-8335-5f0063edd522}">
 		<relationship name="effects">
 			<destination>{30ea4ee6-e78b-4127-8b18-75ab251254b6}</destination>
+			<destination>{bd00ded4-1a06-429b-b2bd-33d628c24b92}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ba098a04-6cb3-4daf-9a6f-fcdd8aed796b}" />
@@ -343,6 +344,7 @@
 	</object>
 	<object class="MixerBusPanner" id="{efb1d99c-5b59-4257-8241-70c6e7b7fd3f}" />
 	<object class="MixerBusFader" id="{30ea4ee6-e78b-4127-8b18-75ab251254b6}" />
+	<object class="SpatialiserEffect" id="{bd00ded4-1a06-429b-b2bd-33d628c24b92}" />
 	<object class="MixerBusFader" id="{a7a1fec0-b455-4e9e-ae05-289199c58a54}" />
 	<object class="AutomationPoint" id="{e4dd2072-ab4f-467f-813a-e8a87bd461e8}">
 		<property name="position">

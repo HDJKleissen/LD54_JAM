@@ -5,7 +5,7 @@
 			<value>Asteroid Impact</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2184131a-0974-4712-b616-3f832799c89d}</destination>
@@ -215,6 +215,7 @@
 	<object class="MixerBusEffectChain" id="{eb137ea9-e91e-4c9d-9f2f-478290bb3f5f}">
 		<relationship name="effects">
 			<destination>{8aa01e31-2bbc-488b-bf4b-7ed0ad33c8f3}</destination>
+			<destination>{63f2f536-c8a2-465d-8984-0ca2f8dba44a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{8c7a73fb-a02d-4958-9548-29c6503cff9b}" />
@@ -344,6 +345,7 @@
 	</object>
 	<object class="MixerBusPanner" id="{4b8f8c89-9a84-4c79-abfa-b0460a1dc850}" />
 	<object class="MixerBusFader" id="{8aa01e31-2bbc-488b-bf4b-7ed0ad33c8f3}" />
+	<object class="SpatialiserEffect" id="{63f2f536-c8a2-465d-8984-0ca2f8dba44a}" />
 	<object class="MixerBusFader" id="{24e559e4-42e3-4d9f-b3ed-834e34552d85}" />
 	<object class="MixerBusFader" id="{b36b60dd-e111-42dd-9280-1884a3b5f56a}" />
 	<object class="AutomationPoint" id="{99b57092-f34d-4888-957e-35c1c1b26f4e}">
