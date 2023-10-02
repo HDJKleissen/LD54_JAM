@@ -33,6 +33,9 @@ public class ShopItem : MonoBehaviour
         if (type == Type.Items)
         {
             buttonText.text = amount.ToString();
+
+            price = Random.Range(1, 10);
+            amount = Random.Range(1, 15);
         }
 
         if(type == Type.Gas)

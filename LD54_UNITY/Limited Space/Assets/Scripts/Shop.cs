@@ -163,7 +163,7 @@ public class Shop : MonoBehaviour
     {
         if (Buy(item.price))
         {
-            planetItemSpawner.SpawnItems(1, item.carriageItem);
+            planetItemSpawner.SpawnItems(item.amount, item.carriageItem);
             Debug.LogWarning("Spawn Items!!");
         }
     }
