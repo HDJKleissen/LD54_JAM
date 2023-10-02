@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private FMOD.Studio.EventInstance movementSound;
 
+
     [SerializeField] private PlayerGas gasTracker;
     // Start is called before the first frame update
     void Start()

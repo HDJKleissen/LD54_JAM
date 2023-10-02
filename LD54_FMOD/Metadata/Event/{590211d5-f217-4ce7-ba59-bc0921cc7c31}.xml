@@ -5,7 +5,7 @@
 			<value>Quest Bark</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2184131a-0974-4712-b616-3f832799c89d}</destination>
@@ -92,6 +92,9 @@
 		<property name="length">
 			<value>7.5</value>
 		</property>
+		<property name="pitch">
+			<value>4.5</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{3c1f351c-acef-486c-8c18-fc2ddb427b78}</destination>
 		</relationship>
@@ -128,7 +131,7 @@
 	<object class="MixerBusEffectChain" id="{031468aa-5b7b-4630-a532-256efe3ea9de}">
 		<relationship name="effects">
 			<destination>{4cb0ce0e-032b-4574-876d-2d10318f30aa}</destination>
-			<destination>{3e03aa2b-d52f-4bba-b119-6910b0e8129d}</destination>
+			<destination>{d97a58ad-510a-482f-870d-653f34cee874}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{9fd0b1ef-a942-40cf-80c8-3e387cc02ae9}" />
@@ -138,7 +141,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>25</value>
+			<value>12.5</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{3cd7fcf3-76e8-4196-9dd2-8669473dc695}">
@@ -198,6 +201,16 @@
 	</object>
 	<object class="MixerBusPanner" id="{0f825859-3232-4847-8e28-1b2b3908c1e0}" />
 	<object class="MixerBusFader" id="{4cb0ce0e-032b-4574-876d-2d10318f30aa}" />
-	<object class="SpatialiserEffect" id="{3e03aa2b-d52f-4bba-b119-6910b0e8129d}" />
+	<object class="MixerSend" id="{d97a58ad-510a-482f-870d-653f34cee874}">
+		<property name="level">
+			<value>-20.5</value>
+		</property>
+		<property name="inputFormat">
+			<value>0</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{2db9af8c-c6e4-4f34-822f-92d6ac89631c}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{b46d30ca-6b2e-4876-93ed-0b7ab63c74bc}" />
 </objects>
