@@ -86,6 +86,7 @@ public class Shop : MonoBehaviour
         if (Buy(item.price))
         {
             //SFX: Wrench sound
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Repair");
             Debug.LogWarning("ADding Extra Wagon!");
             setupTrain.AddContainer();
         }
@@ -96,6 +97,7 @@ public class Shop : MonoBehaviour
         if (Buy(item.price))
         {
             //SFX: Wrench sound
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Repair");
             movement.IncreaseMaxMovementSpeed(item.amount);
             Debug.LogWarning("ADding Extra Speed!");
         }
@@ -106,6 +108,7 @@ public class Shop : MonoBehaviour
         if (Buy(item.price))
         {
             //SFX: Wrench sound
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Repair");
             movement.IncreaseBreakSpeed(item.amount);
             Debug.LogWarning("ADding Better Brakes!");
         }
@@ -127,6 +130,7 @@ public class Shop : MonoBehaviour
         {
             money.ChangeMoney(-price);
             //SFX: succesful buy sound
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Buy");
             return true;
         }
 
