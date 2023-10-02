@@ -10,7 +10,7 @@ public class RandomEventManager : MonoBehaviour
     [SerializeField] GameObject piratePrefab, tumbleWeedPrefab, asteroidPrefab;
     float nextEventTime;
     float timer;
-
+    [SerializeField] float playerDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,16 +34,16 @@ public class RandomEventManager : MonoBehaviour
     void SpawnEvent()
     {
         int possibleSpawnTypes = 0;
-        float distanceFromCenter = Vector2.Distance(Vector2.zero, player.transform.position);
-        if (distanceFromCenter > 50)
+        playerDistance = Vector2.Distance(Vector2.zero, player.transform.position);
+        if (playerDistance > 50)
         {
             possibleSpawnTypes = 1;
         }
-        else if (distanceFromCenter > 300)
+        else if (playerDistance > 150)
         {
             possibleSpawnTypes = 2;
         }
-        else if (distanceFromCenter > 600)
+        else if (playerDistance > 300)
         {
             possibleSpawnTypes = 3;
         }
@@ -53,13 +53,22 @@ public class RandomEventManager : MonoBehaviour
             int spawnType = Random.Range(1, possibleSpawnTypes + 1);
             switch (spawnType)
             {
-
+                case 1:
+                    Debug.Log("Spawning tumbleweeds");
+                    break;
+                case 2:
+                    Debug.Log("Spawning asteroids");
+                    break;
+                case 3:
+                    Debug.Log("Spawning pirate");
+                    break;
             }
         }
     }
 
     void SetNextTimer()
     {
+        timer = 0;
         nextEventTime = Random.Range(minTimeBetweenEvents, maxTimeBetweenEvents);
     }
 }
