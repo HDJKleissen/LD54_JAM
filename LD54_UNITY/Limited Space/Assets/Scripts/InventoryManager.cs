@@ -95,7 +95,6 @@ public class InventoryManager : MonoBehaviour
 
             if (hit && hit.collider.GetComponent<Container>())
             {
-                Debug.Log("Im over 'This'");
                 hit.collider.GetComponent<Container>().OnClick(this);
             }
         }

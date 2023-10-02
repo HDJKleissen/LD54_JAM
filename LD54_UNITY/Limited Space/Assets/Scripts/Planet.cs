@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ public class Planet : MonoBehaviour
     public int TotalMoneyReward = 25;
     [SerializeField] Transform requirementsContainer;
     public bool IsComplete { get; private set; } = false;
+    CanvasGroup canvas;
 
     private void Awake()
     {
@@ -20,10 +22,22 @@ public class Planet : MonoBehaviour
         requirements = requirementsContainer.GetComponentsInChildren<PlanetRequirement>().ToList();
     }
 
+    internal void AddRandomRequirement(GameObject requirementPrefab, ItemType newRequirementItemPrefab, Sprite newRequirementItemSprite)
+    {
+        GameObject reqGO = Instantiate(requirementPrefab);
+
+        reqGO.transform.SetParent(requirementsContainer);
+        PlanetRequirement pr = reqGO.GetComponent<PlanetRequirement>();
+
+        pr.Randomize(newRequirementItemPrefab, newRequirementItemSprite);
+        requirements.Add(pr);
+        ShowObjectiveCanvas();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-
+        canvas = requirementsContainer.parent.parent.GetComponent<CanvasGroup>();
     }
 
     // Update is called once per frame
@@ -44,50 +58,85 @@ public class Planet : MonoBehaviour
         }
     }
 
-    void DeleteItems()
-    {
-        int totalDelete = items.Count;
-        for (int i = 0; i < totalDelete; i++)
-        {
-            Destroy(items[0].gameObject);
-        }
-
-        items.Clear();
-    }
 
     void CompletePlanet()
     {
-        //TODO play complete planet audio
-        Sequence mySequence = DOTween.Sequence();
-        for (int i = 0; i < items.Count; i++)
+        //SFX: play complete planet audio
+
+        List<CarriageItem> totalToDestroy = new List<CarriageItem>();
+
+        foreach (PlanetRequirement requirement in requirements)
         {
-            mySequence.Join(items[i].transform.DOMove(  this.transform.position + new Vector3(Random.Range(-1, 1), Random.Range(-1,1), 0),
-                                                        Random.Range(0.5f, 0.7f),
-                                                        false)
-                                                        .SetEase(Ease.InQuad));
+            List<CarriageItem> toDestroy = new List<CarriageItem>();
+            List<CarriageItem> requirementItems = new List<CarriageItem>(items.Where(item => item.Type == requirement.ItemType));
+
+            foreach (CarriageItem requiredItem in requirementItems)
+            {
+                if (toDestroy.Count < requirement.TotalRequired)
+                {
+                    toDestroy.Add(requiredItem);
+                    totalToDestroy.Add(requiredItem);
+                }
+            }
         }
 
-        mySequence.OnComplete(() =>
+        Sequence mySequence = DOTween.Sequence();
+        for (int i = 0; i < totalToDestroy.Count; i++)
         {
-            DeleteItems();
-            FindObjectOfType<PlayerMoney>().ChangeMoney(TotalMoneyReward);
+            mySequence.Join(totalToDestroy[i].transform.DOMove(
+                transform.position + new Vector3(
+                    UnityEngine.Random.Range(-1, 1),
+                    UnityEngine.Random.Range(-1, 1),
+                    0),
+                UnityEngine.Random.Range(0.5f, 0.7f),
+                false)
+                .SetEase(Ease.InQuad));
+        }
+
+        int moneyAdded = 0;
+        foreach (PlanetRequirement requirement in requirements)
+        {
+            moneyAdded += requirement.Reward;
+        }
+
+        mySequence.OnComplete(() => {
+            int toDestroyItemAmount = totalToDestroy.Count;
+
+            for (int i = 0; i < toDestroyItemAmount; i++)
+            {
+                items.Remove(totalToDestroy[i]);
+                Destroy(totalToDestroy[i].gameObject);
+            }
+
             HideObjectiveCanvas();
+
+            int toDestroyRequirementsAmount = requirements.Count;
+            for (int i = 0; i < toDestroyItemAmount; i++)
+            {
+                Destroy(requirements[i].gameObject);
+            }
+            requirements.Clear();
+
+            FindObjectOfType<PlayerMoney>().ChangeMoney(moneyAdded);
         });
     }
 
     // fade out and disable
     private void HideObjectiveCanvas()
     {
-        CanvasGroup canvas = requirementsContainer.parent.parent.GetComponent<CanvasGroup>();
         DOTween.To(() => canvas.alpha, x => canvas.alpha = x, 0, 1f)
-             .OnUpdate(() => {
-
-             })
              .OnComplete(() => {
                  // This function will be called when the tween is complete.
                  //Debug.Log("Tween Complete!");
-                requirementsContainer.parent.parent.gameObject.SetActive(false);
+                 requirementsContainer.parent.parent.gameObject.SetActive(false);
              });
+    }
+
+    // fade in and enable
+    private void ShowObjectiveCanvas()
+    {
+        requirementsContainer.parent.parent.gameObject.SetActive(true);
+        DOTween.To(() => canvas.alpha, x => canvas.alpha = x, 1f, 1f);
     }
 
     public bool CheckIsPlanetComplete()
@@ -113,7 +162,7 @@ public class Planet : MonoBehaviour
             requirement.CurrentlyHolding = 0;
             for(int i = 0; i < items.Count; i++)
             {
-                if (requirement.ItemType.Type == items[i].Type && !usedIndices.Contains(i))
+                if (requirement.ItemType == items[i].Type && !usedIndices.Contains(i))
                 {
                     // skip; possibly add them to the next requirement
                     if (requirement.CurrentlyHolding >= requirement.TotalRequired)

@@ -253,7 +253,7 @@ RectTransform:
   m_GameObject: {fileID: 7336164306758512855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.006, y: 0.006, z: 0.0002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4965504432724001136}
@@ -286,12 +286,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TotalRequired: 3
-  ItemType: {fileID: 1156363168096691267, guid: 022832fa18159034b9908e9aa129e62f, type: 3}
+  ItemType: 0
   itemSprite: {fileID: 21300000, guid: 9b1f99adb515a5348848aa112f01a982, type: 3}
   requiredAmountTmp: {fileID: 6847299384001465299}
   requiredImage: {fileID: 5707777242517501783}
   background: {fileID: 2264340721088317821}
   CurrentlyHolding: 0
+  Reward: 25
 --- !u!114 &2264340721088317821
 MonoBehaviour:
   m_ObjectHideFlags: 0

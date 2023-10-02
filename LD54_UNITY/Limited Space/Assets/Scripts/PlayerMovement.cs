@@ -15,9 +15,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Rigidbody2D _rigidbody;
 
-    private float rotation;
+    public float rotationInput;
 
-    private Vector2 input;
+    public Vector2 input;
     private Vector2 previousInput;
 
     private FMOD.Studio.EventInstance movementSound;
@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rotation = _rigidbody.rotation;
         movementSound = FMODUnity.RuntimeManager.CreateInstance("event:/Engine");
     }
 
@@ -63,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 velocity = _rigidbody.velocity;
 
         float accelerationInput = input.y;
-        float rotationInput = input.x * velocity.magnitude * _rotateVelocityRatio;
+        rotationInput = input.x * velocity.magnitude * _rotateVelocityRatio;
         float moveSpeed = velocity.magnitude;
 
         if (accelerationInput > 0)

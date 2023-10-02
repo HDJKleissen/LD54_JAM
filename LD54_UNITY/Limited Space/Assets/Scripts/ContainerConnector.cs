@@ -7,6 +7,8 @@ public class ContainerConnector : MonoBehaviour
     [SerializeField] private Transform _frontContainer;
     [SerializeField] private Transform _backContainer;
 
+
+
     bool isValid => _frontContainer != null && _backContainer != null;
 
     // Start is called before the first frame update

@@ -15,11 +15,6 @@ public class CarriageItem : MonoBehaviour
 
     bool isClippingOutside = false;
 
-    public enum ItemType
-    {
-        Cactus = 1,
-        Box = 2,
-    }
 
     public ItemType Type;
 
@@ -49,6 +44,10 @@ public class CarriageItem : MonoBehaviour
     // flip between inside and outside of the carriage
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (!Input.GetMouseButton(0))
+        {
+            return;
+        }
         if (carriageManager && !carriageManager.IsCarriageOpen)
         {
             return;
@@ -141,4 +140,13 @@ public class CarriageItem : MonoBehaviour
         area /= 2f;
         return Mathf.Abs(area);
     }
+}
+
+public enum ItemType
+{
+    Cactus,
+    Box,
+    Wood,
+    Briefcase,
+    Tumbleweed,
 }

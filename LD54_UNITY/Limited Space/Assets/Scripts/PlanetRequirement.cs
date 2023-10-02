@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
+
 public class PlanetRequirement : MonoBehaviour
 {
     [SerializeField] public int TotalRequired = 3;
-    [SerializeField] public CarriageItem ItemType;
+    [SerializeField] public ItemType ItemType;
     [SerializeField] private Sprite itemSprite;
     [SerializeField] private TextMeshProUGUI requiredAmountTmp;
     [SerializeField] private Image requiredImage;
     [SerializeField] private Image background;
     public int CurrentlyHolding;
+    public int Reward = 25;
     public bool IsComplete { get; private set; } = false;
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,15 @@ public class PlanetRequirement : MonoBehaviour
     {
         background.color = Color.white;
         IsComplete = false;
+    }
+
+    internal void Randomize(ItemType newCarriageItemType, Sprite newCarriageItemSprite)
+    {
+        ItemType = newCarriageItemType;
+        itemSprite = newCarriageItemSprite;
+        TotalRequired = UnityEngine.Random.Range(3, 15);
+
+        DisplayRequirements();
     }
 
     public void DisplayRequirements()

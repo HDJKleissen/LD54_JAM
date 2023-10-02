@@ -30,15 +30,12 @@ public class BackgroundParallax : MonoBehaviour
     Vector2 _planet1StartPos;
     Vector2 _planet2StartPos;
 
-    private void Awake()
+    void Start()
     {
-        if(_camera == null)
+        if (_camera == null)
         {
             _camera = FindObjectOfType<Camera>();
         }
-    }
-    void Start()
-    {
         _backgroundSize = _background.GetComponent<SpriteRenderer>().bounds.size;
         _stars1Size = _stars1.GetComponent<SpriteRenderer>().bounds.size;
         _stars2Size = _stars2.GetComponent<SpriteRenderer>().bounds.size;
@@ -53,7 +50,7 @@ public class BackgroundParallax : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         DoParallax(_background, _backgroundFactor, _backgroundSize, _backgroundStartPos);
         DoParallax(_stars1, _stars1Factor, _stars1Size, _stars1StartPos);
