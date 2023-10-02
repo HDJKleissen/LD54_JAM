@@ -245,6 +245,10 @@ PrefabInstance:
       value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 5220384436819437394, guid: c8692f3e0e14d1643bcf84bd97b29e1b, type: 3}
+      propertyPath: itemToSpawn
+      value: 
+      objectReference: {fileID: 1413350437826694694, guid: 23e2338405b10a9439a6e1d2ab93ce87, type: 3}
+    - target: {fileID: 5220384436819437394, guid: c8692f3e0e14d1643bcf84bd97b29e1b, type: 3}
       propertyPath: spawnAmount
       value: 9
       objectReference: {fileID: 0}
