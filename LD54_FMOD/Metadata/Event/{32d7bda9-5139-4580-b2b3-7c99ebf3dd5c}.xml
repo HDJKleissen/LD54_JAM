@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{559cb69c-3bb2-4083-a791-238df40e1185}">
+		<property name="volume">
+			<value>-16</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{3776c154-cda0-4b9f-b766-d4599cc00857}</destination>
 		</relationship>
@@ -135,7 +138,7 @@
 	<object class="MixerBusFader" id="{7bd21548-6aaf-4f47-82aa-a0e1d6fca741}" />
 	<object class="MixerSend" id="{05d45d94-0b2b-4de9-977b-91822cf990e6}">
 		<property name="level">
-			<value>-17.5</value>
+			<value>-16</value>
 		</property>
 		<property name="inputFormat">
 			<value>0</value>

@@ -142,7 +142,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{6da17916-ae74-4a74-8259-2d8e962fd09e}">
 		<property name="volume">
-			<value>-16</value>
+			<value>-20</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{4d516f24-e326-4dd4-ae6f-fda1c003f8c1}</destination>
@@ -616,6 +616,9 @@
 		<relationship name="destination">
 			<destination>{a49bef7a-ff09-4369-b009-df4a90ec786b}</destination>
 		</relationship>
+		<relationship name="triggerConditions">
+			<destination>{04689ec2-9e75-4865-b684-4d3b364fc602}</destination>
+		</relationship>
 	</object>
 	<object class="TransitionRegion" id="{770d4f1d-0013-4033-8485-4ef1b5a6334a}">
 		<property name="position">
@@ -851,6 +854,17 @@
 			<destination>{a29d7b61-904b-4d6d-ba66-47de8c7befe8}</destination>
 			<destination>{f6b125ad-c0c3-4d8f-a58e-d4822dee1cc4}</destination>
 			<destination>{6aac5f73-7645-49b6-9f32-9657d7cf13b0}</destination>
+		</relationship>
+	</object>
+	<object class="ParameterCondition" id="{04689ec2-9e75-4865-b684-4d3b364fc602}">
+		<property name="minimum">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>1</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{c1a0a246-d9f8-4c0c-9b5c-2efb1bf2e1ff}</destination>
 		</relationship>
 	</object>
 	<object class="TransitionTimeline" id="{fe8d6448-91ec-4e45-9184-7d5c5356b0f6}">
