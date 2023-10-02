@@ -7,7 +7,7 @@ public class RandomEventManager : MonoBehaviour
     [SerializeField] float minTimeBetweenEvents;
     [SerializeField] float maxTimeBetweenEvents;
     [SerializeField] PlayerMovement player;
-
+    [SerializeField] GameObject piratePrefab, tumbleWeedPrefab, asteroidPrefab;
     float nextEventTime;
     float timer;
 
