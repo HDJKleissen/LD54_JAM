@@ -48,23 +48,22 @@ public class RandomEventManager : MonoBehaviour
         {
             possibleSpawnTypes = 1;
         }
-        if (playerDistance > 150)
+        if (playerDistance > 100)
         {
             possibleSpawnTypes = 2;
         }
-        if (playerDistance > 300)
+        if (playerDistance > 150)
         {
             possibleSpawnTypes = 3;
         }
 
         if (possibleSpawnTypes > 0)
         {
-            int spawnType = Random.Range(1, possibleSpawnTypes + 1);
+            int spawnType = Mathf.Clamp(Random.Range(1, possibleSpawnTypes + 1),1,4);
 
             float rng = Random.Range(0, 1f);
             Vector3 dir = rng < 0.33f ? player.transform.right : rng < 0.66f ? -player.transform.right : player.transform.up;
 
-            Debug.Log(dir);
             switch (spawnType)
             {
                 case 1:
@@ -88,7 +87,7 @@ public class RandomEventManager : MonoBehaviour
                     }
                     break;
                 case 3:
-                    for (int i = 0; i < playerDistance / 200; i++)
+                    for (int i = 0; i < playerDistance / 150; i++)
                     {
                         Transform pirate = Instantiate(piratePrefab).transform;
                         pirate.position = player.transform.position + player.transform.up * 10 +

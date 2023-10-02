@@ -28,6 +28,7 @@ public class ShopItem : MonoBehaviour
     public Type type;
     private void Awake()
     {
+        carriageItemImage.sprite = carriageItemSprite;
         priceTmp.text = price.ToString();
 
         if (type == Type.Items)

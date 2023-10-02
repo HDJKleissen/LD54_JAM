@@ -44,7 +44,7 @@ public class PlanetRequirement : MonoBehaviour
     {
         ItemType = newCarriageItemType;
         itemSprite = newCarriageItemSprite;
-        TotalRequired = UnityEngine.Random.Range(1, 8);
+        TotalRequired = UnityEngine.Random.Range(4, 12);
         Reward = TotalRequired + 35;
         InComplete();
 
