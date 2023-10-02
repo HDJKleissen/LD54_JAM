@@ -16,7 +16,7 @@ public class InventoryManager : MonoBehaviour
     private bool isDragging = false;
     private Collider2D draggingCollider;
     private CarriageItem draggingItem;
-    [SerializeField] private float rotationSpeed = 5.0f;
+    private float rotationSpeed = 350.0f;
 
     bool moving =true;
     // Update is called once per frame
@@ -124,6 +124,7 @@ public class InventoryManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
+            Debug.LogWarning("ROTATE");
             draggingCollider.gameObject.transform.Rotate(new Vector3(0, 0, rotationSpeed) * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.D))
