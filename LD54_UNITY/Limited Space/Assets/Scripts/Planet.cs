@@ -220,6 +220,7 @@ public class Planet : MonoBehaviour
                         Rigidbody2D itemRB = item.GetComponent<Rigidbody2D>();
                         itemRB.isKinematic = true;
                         itemRB.velocity = Vector2.zero;
+                        item.GetComponent<Collider2D>().isTrigger = true;
                     }
                     items.Add(item);
                 }
@@ -246,6 +247,7 @@ public class Planet : MonoBehaviour
                 {
                     if (item.Type == ItemType.Tumbleweed)
                     {
+                        item.GetComponent<Collider2D>().isTrigger = false;
                         item.GetComponent<Rigidbody2D>().isKinematic = false;
                     }
                     items.Remove(item);
