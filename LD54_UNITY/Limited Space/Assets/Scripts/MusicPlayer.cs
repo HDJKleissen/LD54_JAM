@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicPlayer : UnitySingleton<MusicPlayer>
 {
@@ -16,7 +17,29 @@ public class MusicPlayer : UnitySingleton<MusicPlayer>
             Music.start();
             Music.release();
             DontDestroyOnLoad(this);
+            SetMenu(SceneManager.GetActiveScene().name == "Main Menu");
+        }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if(scene.name == "Main Menu")
+        {
             SetMenu(true);
+        }
+        else
+        {
+            SetMenu(false);
         }
     }
 

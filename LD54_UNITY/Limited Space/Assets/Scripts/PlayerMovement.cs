@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _defaultBrakeSpeed;
     [SerializeField] private float _activeBrakeSpeed;
     [SerializeField] private float _maxMoveSpeed;
+    [SerializeField] private float _idlingGasLoss = 0.01f;
 
     [SerializeField] private float _rotateSpeed;
     [SerializeField] private float _rotateVelocityRatio;
@@ -44,7 +45,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 velocity = _rigidbody.velocity;
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         float rotationInput = input.x * velocity.magnitude * _rotateVelocityRatio;
-        gasTracker.ReduceGas(Mathf.Clamp(Mathf.Abs(input.y) + Mathf.Abs(rotationInput), 0.001f, 1));
+
+        gasTracker.ReduceGas(Mathf.Clamp(_rigidbody.velocity.y < 0.1f ? 0 : Mathf.Abs(input.y) + Mathf.Abs(rotationInput), _idlingGasLoss, 1));
     }
 
     public void IncreaseMaxMovementSpeed(float amount)

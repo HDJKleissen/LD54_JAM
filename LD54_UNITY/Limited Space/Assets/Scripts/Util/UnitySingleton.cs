@@ -16,7 +16,7 @@ public class UnitySingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogError($"There is another {typeof(T)} in the scene");
+            Debug.LogWarning($"There is another {typeof(T)} in the scene");
             Destroy(gameObject);
             return;
         }
