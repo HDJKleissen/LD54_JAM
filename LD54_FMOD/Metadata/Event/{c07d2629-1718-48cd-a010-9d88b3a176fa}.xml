@@ -5,7 +5,7 @@
 			<value>PirateEngine</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2184131a-0974-4712-b616-3f832799c89d}</destination>
@@ -58,7 +58,11 @@
 			<destination>{4ed7f219-d90e-4fa8-bc2f-c7ad6f936ae8}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{b793273d-d428-459f-a8ab-52d794428d1d}" />
+	<object class="EventAutomatableProperties" id="{b793273d-d428-459f-a8ab-52d794428d1d}">
+		<property name="maximumDistance">
+			<value>6400</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{0be2ea54-781d-477d-9864-bc2168e31cf2}" />
 	<object class="GroupTrack" id="{496e8be1-12fd-4261-8524-0e44fee2d0bf}">
 		<relationship name="automationTracks">
@@ -98,7 +102,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{6f20c630-e9ac-4a53-b393-88af802f5318}">
 		<property name="volume">
-			<value>-9</value>
+			<value>-11</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{0c7ce846-80ff-4207-a1cf-df16e03e2f68}</destination>
@@ -262,6 +266,7 @@
 		<relationship name="effects">
 			<destination>{7e8bede9-0b92-485c-aaa0-ba91a868760b}</destination>
 			<destination>{b0d0df44-5334-40dc-b4a0-a6de5b73ea75}</destination>
+			<destination>{bcdbca5f-84eb-47af-b9fe-66fa6b23ea4a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{4c4b39fd-c691-4780-888c-e533bdf6245b}" />
@@ -337,6 +342,38 @@
 	<object class="ThreeEQEffect" id="{b0d0df44-5334-40dc-b4a0-a6de5b73ea75}">
 		<property name="lowGain">
 			<value>-8</value>
+		</property>
+	</object>
+	<object class="SpatialiserEffect" id="{bcdbca5f-84eb-47af-b9fe-66fa6b23ea4a}">
+		<property name="distanceRolloffType">
+			<value>1</value>
+		</property>
+		<property name="minimumDistance">
+			<value>5</value>
+		</property>
+		<property name="maximumDistance">
+			<value>1000</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="soundSize">
+			<value>9</value>
+		</property>
+		<property name="minimumExtent">
+			<value>180</value>
+		</property>
+		<property name="userPanExtent">
+			<value>80</value>
+		</property>
+		<property name="userStereoSeparation">
+			<value>0</value>
+		</property>
+		<property name="userStereoAxis">
+			<value>29.8374119</value>
 		</property>
 	</object>
 	<object class="AutomationCurve" id="{5a8698d0-3202-4c95-ad01-61bd692a14ad}">
