@@ -56,6 +56,11 @@ public class InventoryManager : MonoBehaviour
             {
                 if(draggingItem != null)
                 {
+                    if (draggingItem.carriageManager != null)
+                    {
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/Drop");
+                    }
+
                     draggingItem.BeingDragged = false;
                     draggingItem = null;
                 }
@@ -65,6 +70,7 @@ public class InventoryManager : MonoBehaviour
                 t.position = new Vector3(t.position.x, t.position.y, 0);
                 isDragging = false;
                 draggingCollider = null;
+
             }
         }
 

@@ -87,7 +87,6 @@ public class CarriageItem : MonoBehaviour
                         itemRB.velocity = Vector2.zero;
                     }
                     collision.GetComponent<CarriageManager>().AddCarriageItem(this);
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/Drop");
                 }
             }
         }
