@@ -5,7 +5,7 @@
 			<value>Carriage Impact</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{2184131a-0974-4712-b616-3f832799c89d}</destination>
@@ -131,6 +131,7 @@
 		<relationship name="effects">
 			<destination>{1b47221a-c760-4815-abb7-1fc108921140}</destination>
 			<destination>{94a3c34e-4b77-42ff-bf32-0dbd03f2adf3}</destination>
+			<destination>{4488d7b7-2096-4e0d-a6a5-687a357a2c2f}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{fd80bbaa-f212-42a7-a243-923804c69aa4}" />
@@ -188,6 +189,26 @@
 		<relationship name="mixerReturn">
 			<destination>{2db9af8c-c6e4-4f34-822f-92d6ac89631c}</destination>
 		</relationship>
+	</object>
+	<object class="SpatialiserEffect" id="{4488d7b7-2096-4e0d-a6a5-687a357a2c2f}">
+		<property name="distanceRolloffType">
+			<value>1</value>
+		</property>
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="soundSize">
+			<value>9</value>
+		</property>
+		<property name="minimumExtent">
+			<value>180</value>
+		</property>
+		<property name="userStereoSeparation">
+			<value>0</value>
+		</property>
+		<property name="userStereoAxis">
+			<value>29.8374119</value>
+		</property>
 	</object>
 	<object class="MixerBusFader" id="{9149edfa-5799-41f5-a981-fbf7758c1887}" />
 </objects>
