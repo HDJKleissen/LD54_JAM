@@ -6028,6 +6028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 7868158938979192243}
+  BeingDragged: 0
   Type: 2
 --- !u!114 &8668205117818136079
 MonoBehaviour:
@@ -6125,7 +6126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fac1b6ca0b17ad4f97b09dc28b22dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _containerAmount: 4
   _trainCabin: {fileID: 7096268238419541041}
   _containerPrefab: {fileID: 6058707290046082720, guid: 86d14d9c177b64b48a5e50e112ee5a30, type: 3}
   _connectorPrefab: {fileID: 280226608904774350, guid: 9585c74d89ad3324bbd41def9eb679fe, type: 3}
@@ -8840,6 +8840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 92820008448712803}
+  BeingDragged: 0
   Type: 2
 --- !u!114 &4425808983830159527
 MonoBehaviour:
@@ -14531,6 +14532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 6782550816450215546}
+  BeingDragged: 0
   Type: 1
 --- !u!114 &640444605773961614
 MonoBehaviour:
@@ -15086,6 +15088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 3910178054362159029}
+  BeingDragged: 0
   Type: 1
 --- !u!114 &7521979822428464271
 MonoBehaviour:
@@ -16467,6 +16470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 2036017704746539024}
+  BeingDragged: 0
   Type: 2
 --- !u!114 &6666125212768446636
 MonoBehaviour:
@@ -16965,6 +16969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 7931631916372961870}
+  BeingDragged: 0
   Type: 1
 --- !u!114 &6948870069947345112
 MonoBehaviour:
@@ -17611,6 +17616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 5050319504326098146}
+  BeingDragged: 0
   Type: 2
 --- !u!114 &4135013337186527177
 MonoBehaviour:
@@ -18108,6 +18114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 2715324250843558331}
+  BeingDragged: 0
   Type: 1
 --- !u!114 &4271332071518087368
 MonoBehaviour:
@@ -18750,7 +18757,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 1}
   m_ConnectedAnchor: {x: 0, y: -1}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.75000024
+  m_Distance: 0.75
   m_MaxDistanceOnly: 1
 --- !u!233 &3292835223873727862
 HingeJoint2D:
@@ -18768,7 +18775,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 1}
-  m_ConnectedAnchor: {x: 0, y: -1.7500002}
+  m_ConnectedAnchor: {x: 0, y: -1.75}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
