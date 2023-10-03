@@ -122,12 +122,11 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.Q))
         {
-            Debug.LogWarning("ROTATE");
             draggingCollider.gameObject.transform.Rotate(new Vector3(0, 0, rotationSpeed) * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.E))
         {
             draggingCollider.gameObject.transform.Rotate(new Vector3(0, 0, -rotationSpeed) * Time.deltaTime);
         }

@@ -8,7 +8,7 @@ public class Container : Hazard, IDamageable
     protected override DamageSource damageSource => DamageSource.Container;
 
     public float maxHealth = 15;
-    float health = 15;
+    public float health = 15;
 
     private CarriageManager carriageManager;
     [SerializeField] SpriteRenderer sprenderer;

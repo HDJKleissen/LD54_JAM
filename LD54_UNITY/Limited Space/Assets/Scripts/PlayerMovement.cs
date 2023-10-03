@@ -60,9 +60,8 @@ public class PlayerMovement : Hazard, IDamageable
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         float rotationInput = input.x * velocity.magnitude * _rotateVelocityRatio;
 
-        gasTracker.ReduceGas(Mathf.Clamp(_rigidbody.velocity.y < 0.1f ? 0 : Mathf.Abs(input.y) + Mathf.Abs(rotationInput), _idlingGasLoss, 1));
-
-
+        gasTracker.ReduceGas(Mathf.Clamp((_rigidbody.velocity.y < 0.1f ? 0 : Mathf.Abs(input.y)) + Mathf.Abs(rotationInput), _idlingGasLoss, 1));
+        
         healthSlider.value = health / maxHealth;
     }
 
@@ -292,8 +291,7 @@ public class PlayerMovement : Hazard, IDamageable
                 exploded = true;
                 Transform expl = Instantiate(explosionPrefab).transform;
                 expl.position = transform.position;
-                // TODO: Open end screen
-                Debug.LogWarning("Kaboom!");
+                FindObjectOfType<MenuButtons>().OpenGameOverScreen();
             }
         }
     }

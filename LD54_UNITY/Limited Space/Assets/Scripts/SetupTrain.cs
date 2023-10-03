@@ -14,9 +14,11 @@ public class SetupTrain : MonoBehaviour
 
     List<Container> containers = new List<Container>();
     Rigidbody2D previousContainer;
+    PlayerMoney money;
     // Start is called before the first frame update
     void Start()
     {
+        money = FindObjectOfType<PlayerMoney>();
         containers = new List<Container>(GetComponentsInChildren<Container>());
         if (containers.Count == 0)
         {
@@ -31,7 +33,19 @@ public class SetupTrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int aliveContainers = containers.Count;
+        foreach(Container container in containers)
+        {
+            if(container.health < 0)
+            {
+                aliveContainers--;
+            }
+        }
 
+        if(aliveContainers == 0 && money.Money <= 0)
+        {
+            FindObjectOfType<MenuButtons>().OpenGameOverScreen();
+        }
     }
 
     

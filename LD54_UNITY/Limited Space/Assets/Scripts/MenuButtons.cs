@@ -1,22 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MenuButtons : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject optionsMenu;
+    [SerializeField] GameObject tutorialMenu;
+    [SerializeField] GameObject gameOverMenu;
+    [SerializeField] TextMeshProUGUI gameOverMoneyText;
 
+    public static int TotalEarnedMoney = 0;
     bool paused;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name != "MainMenu")
-        {
-            Unpause();
-        }
+        TotalEarnedMoney = 0;
     }
 
     // Update is called once per frame
@@ -41,6 +44,8 @@ public class MenuButtons : MonoBehaviour
         paused = false;
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
+        tutorialMenu.SetActive(false);
         Time.timeScale = 1;
     }
     public void Pause()
@@ -48,18 +53,33 @@ public class MenuButtons : MonoBehaviour
         paused = true;
         pauseMenu.SetActive(true);
         optionsMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
+        tutorialMenu.SetActive(false);
         Time.timeScale = 0;
+    }
+
+    public void OpenGameOverScreen()
+    {
+        pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+        gameOverMenu.SetActive(true);
+        tutorialMenu.SetActive(false);
+        gameOverMoneyText.text = TotalEarnedMoney.ToString();
     }
 
     public void OpenOptionsMenu()
     {
         optionsMenu.SetActive(true);
         pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
+        tutorialMenu.SetActive(false);
     }
     public void OpenBaseMenu()
     {
         pauseMenu.SetActive(true);
         optionsMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
+        tutorialMenu.SetActive(false);
     }
 
     public void LoadScene(string name)

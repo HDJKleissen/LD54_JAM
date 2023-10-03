@@ -34,6 +34,7 @@ public class PlayerMoney : MonoBehaviour
         }
         else
         {
+            MenuButtons.TotalEarnedMoney += amount;
             // TODO positive money sound
         }
 

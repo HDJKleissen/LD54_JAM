@@ -37,9 +37,10 @@ public class PlayerGas : MonoBehaviour
         if(gasAmount < 0 && !isRanOut)
         {
             isRanOut = true;
+            FindObjectOfType<PlayerMovement>().enabled = false;
             FMODUnity.RuntimeManager.PlayOneShot("event:/Fuel Empty");
             //TODO add end screen
-            Debug.LogWarning("GAME OVER!!");
+            FindObjectOfType<MenuButtons>().OpenGameOverScreen();
         }
     }
 
