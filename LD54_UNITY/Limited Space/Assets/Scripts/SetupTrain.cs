@@ -45,6 +45,9 @@ public class SetupTrain : MonoBehaviour
         if(aliveContainers == 0 && money.Money <= 0)
         {
             FindObjectOfType<MenuButtons>().OpenGameOverScreen();
+            PlayerMovement mov = FindObjectOfType<PlayerMovement>();
+            mov.movementSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            mov.enabled = false;
         }
     }
 

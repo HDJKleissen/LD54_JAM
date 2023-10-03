@@ -26,7 +26,7 @@ public class PlayerMovement : Hazard, IDamageable
     public Vector2 input;
     private Vector2 previousInput;
 
-    private FMOD.Studio.EventInstance movementSound;
+    public FMOD.Studio.EventInstance movementSound;
     bool exploded;
     public float health = 100;
     float maxHealth = 100;
