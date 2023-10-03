@@ -288,8 +288,8 @@ MonoBehaviour:
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
-  AutomaticEventLoading: 1
-  BankLoadType: 0
+  AutomaticEventLoading: 0
+  BankLoadType: 2
   AutomaticSampleLoading: 0
   EncryptionKey: 
   ImportType: 0
@@ -539,9 +539,9 @@ MonoBehaviour:
   - e7a046c753c3c3d4aacc91f6597f310d
   - 2c5177b11d81d824dbb064f9ac8527da
   - fd7c55dab0fce234b8c25f6ffca523c1
-  - 46fbfdf3fc43db0458918377fd40293e
   - 0f8eb3f400726694eb47beb1a9f94ce8
   - c88d16e5272a4e241b0ef0ac2e53b73d
+  - 46fbfdf3fc43db0458918377fd40293e
   codecChannels:
     Value: []
     HasValue: 0
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifier: 46fbfdf3fc43db0458918377fd40293e
   parentIdentifier: default
-  active: 0
+  active: 1
   Properties:
     LiveUpdate:
       Value: 0
@@ -650,17 +650,17 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     VirtualChannelCount:
-      Value: 0
-      HasValue: 0
+      Value: 64
+      HasValue: 1
     RealChannelCount:
-      Value: 0
-      HasValue: 0
+      Value: 16
+      HasValue: 1
     DSPBufferLength:
-      Value: 0
-      HasValue: 0
+      Value: 512
+      HasValue: 1
     DSPBufferCount:
-      Value: 0
-      HasValue: 0
+      Value: 2
+      HasValue: 1
     Plugins:
       Value: []
       HasValue: 0
@@ -670,7 +670,7 @@ MonoBehaviour:
     CallbackHandler:
       Value: {fileID: 0}
       HasValue: 0
-  OutputTypeName: 
+  OutputTypeName: WEBAUDIO
   threadAffinities:
     Value: []
     HasValue: 0
